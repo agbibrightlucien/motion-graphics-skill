@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <title>__TITLE__</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <script src="assets/cm-kit.js"></script>
+    <link rel="stylesheet" href="assets/cm-kit.css" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: #F4F4F6; }
+      #root { position: relative; width: __W__px; height: __H__px; overflow: hidden; }
+    </style>
+  </head>
+  <body>
+    <!-- Scene hosts and audio between the CMV markers are rewritten by `cmv.py assemble`.
+         Edit plan.json (scenes, sfx, music) and compositions/*.html, not these blocks. -->
+    <div
+      id="root"
+      data-composition-id="main"
+      data-theme="__THEME__"
+      data-start="0"
+      data-duration="10"
+      data-width="__W__"
+      data-height="__H__"
+    >
+      <!-- CMV:SCENES -->
+      <!-- /CMV:SCENES -->
+      <!-- CMV:AUDIO -->
+      <!-- /CMV:AUDIO -->
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

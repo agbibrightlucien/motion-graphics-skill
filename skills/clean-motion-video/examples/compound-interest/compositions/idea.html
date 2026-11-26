@@ -1,0 +1,36 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #idea-line { position: absolute; left: 120px; right: 192px; top: 520px; font-size: 96px; }
+    #idea-sub { position: absolute; left: 120px; right: 300px; top: 1160px; font-size: 50px; color: #111113; }
+    #idea-card { position: absolute; left: 200px; top: 860px; width: 500px; text-align: left; }
+    #idea-card .lbl { font-size: 30px; color: #86868B; font-weight: 500; }
+    #idea-card .amt { font-size: 92px; font-weight: 700; letter-spacing: -0.03em; margin-top: 6px; }
+    #idea-chip1 { position: absolute; left: 560px; top: 820px; font-size: 40px; color: #1F9D4C; font-weight: 700; }
+    #idea-chip2 { position: absolute; left: 680px; top: 740px; font-size: 30px; color: #1F9D4C; font-weight: 700; }
+  </style>
+  <div id="root" data-composition-id="idea" data-width="1080" data-height="1920">
+    <div class="cm-ground"></div>
+    <h1 id="idea-line" class="cm-line">That's <b>compound interest.</b></h1>
+    <div id="idea-card" class="cm-card"><div class="lbl">Savings</div><div class="amt">$1,000</div></div>
+    <div id="idea-chip1" class="cm-chip">+$80</div>
+    <div id="idea-chip2" class="cm-chip">+$6.40</div>
+    <p id="idea-sub" class="cm-line">You earn interest on your <em>interest.</em></p>
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="idea"]');
+      const $ = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      CM.speak(tl, $("#idea-line"), [0.15, 0.47, 1.19]);
+      CM.speak(tl, $("#idea-sub"), [1.83, 2.07, 2.47, 2.87, 3.03, 3.19]);
+      CM.pop(tl, $("#idea-card"), 1.8, { from: 0.8, ease: "expo.out", dur: 0.45 });
+      CM.pop(tl, $("#idea-chip1"), 2.42);
+      CM.pop(tl, $("#idea-chip2"), 3.15);
+
+      ["#idea-line", "#idea-card", "#idea-chip1", "#idea-chip2", "#idea-sub"].forEach((s, i) => CM.blurOut(tl, $(s), 3.82 + i * 0.03));
+      window.__timelines["idea"] = tl;
+    })();
+  </script>
+</template>

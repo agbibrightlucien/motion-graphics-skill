@@ -1,0 +1,30 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #early-sky { position: absolute; inset: 0; background: linear-gradient(180deg, #FFFFFF 0%, #D6E7FF 100%); }
+    #early-a { position: absolute; left: 120px; right: 192px; top: 610px; font-size: 64px; }
+    #early-b { position: absolute; left: 120px; right: 192px; top: 700px; font-size: 104px; font-weight: 700; letter-spacing: -0.045em; }
+  </style>
+  <div id="root" data-composition-id="early" data-width="1080" data-height="1920">
+    <div class="cm-ground"></div>
+    <div id="early-sky"></div>
+    <p id="early-a" class="cm-line">The secret isn't <em>how much.</em></p>
+    <h1 id="early-b" class="cm-line">It's how <b>early.</b></h1>
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="early"]');
+      const $ = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+
+      CM.speak(tl, $("#early-a"), [0.15, 0.31, 0.63, 1.03, 1.27]);
+      tl.fromTo($("#early-a"), { opacity: 1 }, { opacity: 0.35, duration: 0.3, ease: "power2.out", immediateRender: false }, 1.6);
+      CM.flood(tl, $("#early-sky"), 1.62);
+      CM.speak(tl, $("#early-b"), [1.67, 1.99, 2.23], { blur: 14, scale: 1.12 });
+
+      CM.blurOut(tl, $("#early-a"), 2.95);
+      CM.blurOut(tl, $("#early-b"), 2.98);
+      window.__timelines["early"] = tl;
+    })();
+  </script>
+</template>

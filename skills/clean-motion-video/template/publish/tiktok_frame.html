@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- 9:16 frames for TikTok parts: one frame per second (part i at t = i + 0.5). The landscape clip is laid
+         into the empty middle band (y 656-1264) by ffmpeg. Filled by `cmv.py tiktok --vertical`. -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: #0B0D14; }
+      #root { position: relative; width: 1080px; height: 1920px; overflow: hidden; font-family: "Inter", sans-serif;
+              background: radial-gradient(90% 60% at 50% 40%, #1C2336 0%, #0E1018 60%, #07080C 100%); }
+      .pg { position: absolute; inset: 0; }
+      .top { position: absolute; left: 90px; right: 90px; top: 300px; text-align: center; }
+      .part { display: inline-block; font-size: 40px; font-weight: 800; letter-spacing: 0.06em; color: #fff; background: #0A84FF; padding: 10px 26px; border-radius: 14px; }
+      .ttl { margin-top: 26px; font-size: 64px; font-weight: 800; line-height: 1.08; letter-spacing: -0.03em; color: #fff; }
+      .band { position: absolute; left: 0; right: 0; top: 656px; height: 608px; background: #000; }
+      .bot { position: absolute; left: 120px; right: 300px; top: 1320px; display: flex; align-items: center; gap: 22px; }
+      .av { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; flex: none; background: #0A84FF; }
+      .av img { width: 100%; height: 100%; object-fit: cover; }
+      .h { font-size: 40px; font-weight: 800; color: #fff; }
+      .s { font-size: 30px; color: #A1A1AA; margin-top: 4px; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="__N__" data-width="1080" data-height="1920">
+__PAGES__
+    </div>
+    <script>window.__timelines["main"] = gsap.timeline({ paused: true });</script>
+  </body>
+</html>

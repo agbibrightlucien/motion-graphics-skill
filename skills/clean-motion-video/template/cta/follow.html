@@ -1,0 +1,44 @@
+<template>
+  <!-- Follow CTA overlay for vertical shorts (TikTok / Reels / Shorts). Filled by `cmv.py cta`.
+       Sits inside the safe area: below y 840 everything stays within x 120-780. -->
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    #__ID__-wrap { position: absolute; left: __LEFT__px; top: __TOP__px; width: 660px; }
+    #__ID__-line { text-align: center; font-family: var(--font); font-size: 40px; font-weight: 700; color: #111113; margin-bottom: 18px;
+                   background: rgba(255,255,255,0.92); border-radius: 26px; padding: 12px 20px; box-shadow: var(--shadow); }
+    #__ID__-card { display: flex; align-items: center; gap: 20px; padding: 20px; background: #fff; border-radius: 30px;
+                   box-shadow: 0 20px 60px rgba(17,17,19,0.18), 0 2px 6px rgba(17,17,19,0.08); font-family: var(--font); }
+    #__ID__-av { width: 92px; height: 92px; border-radius: 50%; background: __COLOR__; color: #fff; display: flex; align-items: center;
+                 justify-content: center; font-size: 44px; font-weight: 800; flex: none; overflow: hidden; }
+    #__ID__-av img { width: 100%; height: 100%; object-fit: cover; }
+    #__ID__-nm { font-size: 36px; font-weight: 700; color: #111113; white-space: nowrap; }
+    #__ID__-sb { font-size: 28px; color: #6E6E73; white-space: nowrap; }
+    #__ID__-btn { position: relative; margin-left: auto; height: 76px; width: 210px; border-radius: 22px; flex: none; }
+    .__ID__-b { position: absolute; inset: 0; border-radius: 22px; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 34px; font-weight: 700; }
+    #__ID__-b1 { background: #111113; color: #fff; }
+    #__ID__-b2 { background: #EFEFF2; color: #3A3A3C; }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-wrap">
+      <div id="__ID__-card">
+        <div id="__ID__-av">__AVATAR__</div>
+        <div><div id="__ID__-nm">__CHANNEL__</div><div id="__ID__-sb">__SUB__</div></div>
+        <div id="__ID__-btn"><div id="__ID__-b2" class="__ID__-b">__B2__</div><div id="__ID__-b1" class="__ID__-b">__B1__</div></div>
+      </div>
+    </div>
+    <img id="__ID__-cur" class="cm-cursor" src="assets/cursor.svg" alt="" />
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="__ID__"]');
+      const $ = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo($("#__ID__-wrap"), { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.0);
+      const p = CM.tap(tl, $("#__ID__-cur"), $("#__ID__-b1"), root, 0.6, { from: { x: 700, y: 1500 } });   // press ~1.2
+      tl.fromTo($("#__ID__-b1"), { opacity: 1 }, { opacity: 0, duration: 0.18, immediateRender: false }, p + 0.05);
+      tl.fromTo($("#__ID__-btn"), { scale: 1 }, { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, p + 0.1);
+      tl.fromTo($("#__ID__-wrap"), { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 0, y: 50, filter: "blur(10px)", duration: 0.35, ease: "power3.in", immediateRender: false }, __OUT__);
+      window.__timelines["__ID__"] = tl;
+    })();
+  </script>
+</template>

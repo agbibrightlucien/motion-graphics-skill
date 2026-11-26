@@ -1,0 +1,63 @@
+/* cm-kit.css: design tokens + reusable UI parts for clean-motion-video.
+ * Pick a theme by putting data-theme="light|cream|blush|sky|periwinkle|dark|mono" on #root.
+ * Never style a scene root from here (scenes style their own #root inline).
+ */
+:root {
+  --bg: #F4F4F6; --ink: #111113; --muted: #86868B; --line: #E3E3E8; --card: #FFFFFF;
+  --accent: #0A84FF; --accent-2: #FF3B30; --good: #34C759;
+  --shadow: 0 18px 50px rgba(17, 17, 19, 0.10), 0 2px 6px rgba(17, 17, 19, 0.06);
+  --radius: 28px;
+  --font: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+  --font-serif: "EB Garamond", "Playfair Display", serif;
+  --font-condensed: "Oswald", "League Gothic", sans-serif;
+}
+[data-theme="cream"]      { --bg: #F3F1EA; --ink: #1A1A18; --muted: #A29E92; --line: #E2DED2; --card: #FBFAF6; --accent: #1A1A18; }
+[data-theme="blush"]      { --bg: linear-gradient(180deg, #FFFFFF 0%, #FBE3E5 100%); --accent: #E5484D; --accent-2: #E5484D; }
+[data-theme="sky"]        { --bg: linear-gradient(180deg, #FFFFFF 0%, #DCEBFF 100%); --accent: #1F7AE0; }
+[data-theme="periwinkle"] { --bg: radial-gradient(120% 90% at 50% 40%, #8DB4F0 0%, #6B9BE0 60%, #5E8FD8 100%); --ink: #FFFFFF; --muted: rgba(255,255,255,0.55); --card: #FFFFFF; --accent: #FFFFFF; }
+[data-theme="dark"]       { --card-ink: #F5F5F7; --bg: #0E0E10; --ink: #F5F5F7; --muted: #6E6E73; --line: #26262A; --card: #1C1C1E; --shadow: 0 18px 60px rgba(0,0,0,0.5); }
+[data-theme="mono"]       { --bg: radial-gradient(90% 80% at 50% 45%, #F2F2F2 0%, #CFCFCF 70%, #9C9C9C 100%); --ink: #0B0B0B; --muted: #6A6A6A; --accent: #D21F1F; --font: "Oswald", sans-serif; }
+/* ---- looks beyond the clean default (see references/looks.md for when to use each) ---- */
+[data-theme="paper"]      { --bg: #EFE8DA; --ink: #22201B; --muted: #8C8371; --line: #D9CFBC; --card: #F8F3E8; --accent: #B4532A; --accent-2: #B4532A; --font: "EB Garamond", serif; --radius: 6px; --shadow: 0 10px 30px rgba(60,40,10,0.12); }
+[data-theme="midnight"]   { --bg: radial-gradient(110% 80% at 50% 35%, #1A2350 0%, #0B1030 55%, #05071A 100%); --ink: #F2F4FF; --muted: #7C84B0; --line: #262E5A; --card: #141A3D; --accent: #5CE1E6; --accent-2: #FF4FD8; --shadow: 0 0 60px rgba(92,225,230,0.18), 0 18px 50px rgba(0,0,0,0.5); --font: "Outfit", sans-serif; --card-ink: #F2F4FF; }
+[data-theme="bold"]       { --bg: #FF5A1F; --ink: #FFFFFF; --muted: rgba(255,255,255,0.65); --line: rgba(255,255,255,0.35); --card: #FFFFFF; --accent: #111113; --accent-2: #111113; --font: "Archivo Black", "Montserrat", sans-serif; --radius: 22px; }
+[data-theme="sunset"]     { --bg: linear-gradient(170deg, #FFE3C7 0%, #FFB8A8 55%, #F78DB0 100%); --ink: #2B1630; --muted: #8E6074; --card: #FFF8F3; --accent: #D6336C; --font: "Poppins", sans-serif; }
+[data-theme="forest"]     { --bg: radial-gradient(100% 80% at 50% 40%, #1F3D2E 0%, #12261C 100%); --ink: #F1EBDD; --muted: #8FA597; --line: #2D4A3B; --card: #F1EBDD; --accent: #D9B26F; --shadow: 0 18px 60px rgba(0,0,0,0.4); --font: "Playfair Display", serif; }
+[data-theme="candy"]      { --bg: #FFE66D; --ink: #1B1B3A; --muted: #6B6B8A; --line: #1B1B3A; --card: #FFFFFF; --accent: #FF4F8B; --accent-2: #3A86FF; --font: "Nunito", sans-serif; --radius: 36px; --shadow: 6px 8px 0 #1B1B3A; }
+[data-theme="noir"]       { --bg: #070707; --ink: #F4F1EA; --muted: #77736B; --line: #222; --card: #141414; --accent: #E02424; --accent-2: #E02424; --font: "Playfair Display", serif; --shadow: 0 20px 70px rgba(0,0,0,0.7); --card-ink: #F4F1EA; }
+
+/* ---------- ground ---------- */
+.cm-ground { position: absolute; inset: 0; background: var(--bg); }
+.cm-grain  { position: absolute; inset: 0; pointer-events: none; opacity: 0.06;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"); }
+.cm-vignette { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(75% 70% at 50% 45%, transparent 55%, rgba(0,0,0,0.35) 100%); }
+.cm-stage  { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; transform-origin: 50% 50%; }
+
+/* ---------- type ---------- */
+.cm-line   { font-family: var(--font); color: var(--ink); font-weight: 500; letter-spacing: -0.025em; line-height: 1.12; text-align: center; }
+.cm-line em { font-style: normal; color: var(--muted); }           /* quiet last word: "city <em>together</em>" */
+.cm-line b  { font-weight: inherit; color: var(--accent); }          /* the one accent word */
+.cm-line .cm-glow { color: var(--accent-2); text-shadow: 0 0 18px rgba(255, 59, 48, 0.55); }
+.cm-w      { display: inline-block; will-change: transform, filter, opacity; }
+.cm-mono   { font-family: var(--font-mono); font-weight: 400; letter-spacing: 0; }
+.cm-serif  { font-family: var(--font-serif); font-weight: 500; letter-spacing: -0.01em; }
+.cm-heavy  { font-family: var(--font-condensed); font-weight: 700; text-transform: uppercase; letter-spacing: 0; }
+.cm-script { font-family: "Playfair Display", serif; font-style: italic; }
+[data-caret="on"]::after { content: ""; display: inline-block; width: 0.06em; height: 1em; margin-left: 0.06em; background: currentColor; vertical-align: -0.12em; }
+
+/* ---------- UI parts ---------- */
+.cm-card   { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 36px 40px; font-family: var(--font); color: var(--card-ink, #111113); }
+.cm-pill   { display: inline-flex; align-items: center; gap: 18px; background: #111113; color: #fff; border-radius: 999px; padding: 22px 34px; font-family: var(--font); font-weight: 500; box-shadow: var(--shadow); }
+.cm-glass  { background: rgba(255,255,255,0.22); border: 1.5px solid rgba(255,255,255,0.55); backdrop-filter: blur(18px); border-radius: 999px; color: #fff; }
+.cm-search { display: flex; align-items: center; gap: 22px; background: #FFFFFF; border: 1.5px solid var(--line); border-radius: 999px; padding: 26px 36px; min-width: 760px; font-family: var(--font); color: #111113; box-shadow: var(--shadow); }
+.cm-search .cm-q { color: #111113; font-weight: 500; }
+.cm-btn    { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; border-radius: 999px; padding: 20px 46px; font-family: var(--font); font-weight: 600; }
+.cm-chip   { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border: 1.5px solid var(--line); border-radius: 999px; padding: 12px 22px; font-family: var(--font); font-weight: 500; color: var(--card-ink, #111113); }
+.cm-bubble-in  { display: inline-block; background: #E9E9EB; color: #111; border-radius: 30px; padding: 20px 30px; font-family: var(--font); }
+.cm-bubble-out { display: inline-block; background: #0A84FF; color: #fff; border-radius: 30px; padding: 20px 30px; font-family: var(--font); }
+.cm-avatar { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; background: #DDD; }
+.cm-icon   { width: 120px; height: 120px; border-radius: 30px; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+.cm-cursor { position: absolute; left: 0; top: 0; width: 46px; height: 46px; margin: -6px 0 0 -10px; z-index: 50; pointer-events: none; transform-origin: 20% 15%; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
+.cm-phone  { width: 420px; height: 860px; border-radius: 64px; background: #0B0B0C; padding: 14px; box-shadow: 0 40px 90px rgba(0,0,0,0.35); }
+.cm-phone > .cm-screen { width: 100%; height: 100%; border-radius: 52px; overflow: hidden; background: #fff; position: relative; }

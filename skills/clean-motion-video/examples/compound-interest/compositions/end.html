@@ -1,0 +1,23 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; }
+    #end-bg { position: absolute; inset: 0; background: #0E0E10; }
+    #end-mark { position: absolute; left: 120px; right: 192px; top: 790px; font-size: 120px; font-weight: 700; color: #F5F5F7; letter-spacing: -0.045em; }
+    #end-sub { position: absolute; left: 120px; right: 192px; top: 950px; font-size: 40px; color: #6E6E73; font-weight: 500; }
+  </style>
+  <div id="root" data-composition-id="end" data-width="1080" data-height="1920">
+    <div id="end-bg"></div>
+    <h1 id="end-mark" class="cm-line">Start early.</h1>
+    <p id="end-sub" class="cm-line">Compound interest, explained.</p>
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="end"]');
+      const $ = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      CM.lens(tl, $("#end-mark"), 0.08, { dur: 0.6 });
+      CM.blurIn(tl, $("#end-sub"), 0.45);
+      window.__timelines["end"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=720" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <!-- YouTube thumbnail, 1280x720. Filled by `cmv.py thumb`. Tokens: __BG__ __INK__ __ACCENT__ __KICKER__ __TITLE__ __FRAME__ __STICKER__ -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1280px; height: 720px; overflow: hidden; background: __BG__; }
+      #root { position: relative; width: 1280px; height: 720px; overflow: hidden; background: __BG__; font-family: "Inter", sans-serif; }
+      #glow { position: absolute; right: -120px; top: -80px; width: 760px; height: 760px; border-radius: 50%;
+              background: radial-gradient(circle, __ACCENT__33 0%, transparent 65%); }
+      #txt { position: absolute; left: 64px; top: 0; bottom: 0; width: 640px; display: flex; flex-direction: column; justify-content: center; }
+      #kick { display: inline-block; align-self: flex-start; font-size: 34px; font-weight: 800; letter-spacing: 0.02em; text-transform: uppercase;
+              color: #fff; background: __ACCENT__; padding: 8px 20px; border-radius: 12px; margin-bottom: 22px; }
+      #title { font-size: 118px; font-weight: 900; line-height: 0.95; letter-spacing: -0.045em; color: __INK__; text-transform: uppercase; }
+      #title b { color: __ACCENT__; font-weight: 900; }
+      #frame { position: absolute; right: 56px; top: 110px; width: 560px; height: 315px; border-radius: 26px; overflow: hidden;
+               transform: rotate(3deg); box-shadow: 0 30px 80px rgba(0,0,0,0.45), 0 0 0 6px #fff; background: #222; }
+      #frame img { width: 100%; height: 100%; object-fit: cover; }
+      #sticker { position: absolute; right: 340px; top: 430px; transform: rotate(-5deg); }
+      .stk { background: #fff; border-radius: 26px; padding: 20px 30px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); font-family: "Inter", sans-serif; }
+      .stk .k { font-size: 24px; color: #6E6E73; font-weight: 600; }
+      .stk .v { font-size: 84px; font-weight: 900; letter-spacing: -0.04em; color: #E5484D; line-height: 1; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="1" data-width="1280" data-height="720">
+      <div id="glow" class="clip" data-start="0" data-duration="1"></div>
+      <div id="frame" class="clip" data-start="0" data-duration="1">__FRAME__</div>
+      <div id="sticker" class="clip" data-start="0" data-duration="1">__STICKER__</div>
+      <div id="txt" class="clip" data-start="0" data-duration="1"><div id="kick">__KICKER__</div><div id="title">__TITLE__</div></div>
+    </div>
+    <script>window.__timelines["main"] = gsap.timeline({ paused: true });</script>
+  </body>
+</html>

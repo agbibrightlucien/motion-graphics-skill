@@ -1,0 +1,60 @@
+<template>
+  <!-- Subscribe + bell CTA overlay (landscape lower third). Filled by `cmv.py cta`.
+       Tokens: __ID__ __CHANNEL__ __SUB__ __INITIAL__ __COLOR__ __LINE__ __LEFT__ __TOP__ -->
+  <style>
+    #root { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+    #__ID__-wrap { position: absolute; left: __LEFT__px; top: __TOP__px; }
+    #__ID__-line { position: absolute; left: 6px; top: -62px; white-space: nowrap; font-family: var(--font); font-size: 32px; font-weight: 600;
+                   color: #111113; background: rgba(255,255,255,0.92); padding: 8px 20px; border-radius: 999px; box-shadow: var(--shadow); }
+    #__ID__-card { display: flex; align-items: center; gap: 22px; padding: 22px 26px 22px 22px; background: #fff; border-radius: 30px;
+                   box-shadow: 0 20px 60px rgba(17,17,19,0.18), 0 2px 6px rgba(17,17,19,0.08); font-family: var(--font); }
+    #__ID__-av { width: 84px; height: 84px; border-radius: 50%; background: __COLOR__; color: #fff; display: flex; align-items: center;
+                 justify-content: center; font-size: 40px; font-weight: 800; flex: none; overflow: hidden; }
+    #__ID__-av img { width: 100%; height: 100%; object-fit: cover; }
+    #__ID__-nm { font-size: 34px; font-weight: 700; color: #111113; white-space: nowrap; }
+    #__ID__-sb { font-size: 28px; color: #6E6E73; margin-top: 2px; white-space: nowrap; }
+    #__ID__-btn { position: relative; margin-left: 18px; height: 72px; min-width: 230px; border-radius: 999px; }
+    .__ID__-b { position: absolute; inset: 0; border-radius: 999px; display: flex; align-items: center; justify-content: center; gap: 10px;
+                font-size: 32px; font-weight: 700; white-space: nowrap; }
+    #__ID__-b1 { background: #E5484D; color: #fff; }
+    #__ID__-b2 { background: #EFEFF2; color: #3A3A3C; }
+    #__ID__-bell { width: 72px; height: 72px; border-radius: 50%; background: #EFEFF2; display: flex; align-items: center; justify-content: center; flex: none; }
+    #__ID__-on { position: absolute; left: 6px; top: -62px; white-space: nowrap; font-family: var(--font); font-size: 28px; font-weight: 700;
+                 color: #1F9D4C; background: #fff; padding: 8px 18px; border-radius: 999px; box-shadow: var(--shadow); }
+  </style>
+  <div id="root" data-composition-id="__ID__" data-width="__W__" data-height="__H__">
+    <div id="__ID__-wrap">
+      <div id="__ID__-line">__LINE__</div>
+      <div id="__ID__-card">
+        <div id="__ID__-av">__AVATAR__</div>
+        <div><div id="__ID__-nm">__CHANNEL__</div><div id="__ID__-sb">__SUB__</div></div>
+        <div id="__ID__-btn"><div id="__ID__-b2" class="__ID__-b"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3A3A3C" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6"/></svg>Subscribed</div><div id="__ID__-b1" class="__ID__-b">Subscribe</div></div>
+        <div id="__ID__-bell"><svg id="__ID__-bi" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#111113" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9a6 6 0 0 1 12 0c0 6 2.5 7.5 2.5 7.5h-17S6 15 6 9"/><path d="M10 20a2 2 0 0 0 4 0"/></svg></div>
+      </div>
+      <div id="__ID__-on">All notifications on</div>
+    </div>
+    <img id="__ID__-cur" class="cm-cursor" src="assets/cursor.svg" alt="" />
+  </div>
+  <script>
+    (function () {
+      const root = document.querySelector('[data-composition-id="__ID__"]');
+      const $ = (s) => root.querySelector(s);
+      const tl = gsap.timeline({ paused: true });
+      tl.fromTo($("#__ID__-wrap"), { opacity: 0, y: 70, filter: "blur(10px)" }, { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.5, ease: "expo.out" }, 0.0);
+      CM.blurIn(tl, $("#__ID__-line"), 0.25);
+      tl.fromTo($("#__ID__-bell"), { opacity: 0, scale: 0.6 }, { opacity: 0, scale: 0.6, duration: 0.01 }, 0);
+      const p1 = CM.tap(tl, $("#__ID__-cur"), $("#__ID__-b1"), root, 0.65, { leave: false });              // press ~1.25
+      tl.fromTo($("#__ID__-b1"), { opacity: 1 }, { opacity: 0, duration: 0.18, immediateRender: false }, p1 + 0.05);
+      CM.pop(tl, $("#__ID__-bell"), p1 + 0.3, { from: 0.6 });
+      const bp = CM.pos($("#__ID__-b1"), root);
+      const p2 = CM.tap(tl, $("#__ID__-cur"), $("#__ID__-bell"), root, p1 + 0.55, { from: { x: bp.cx, y: bp.cy + 6 }, travel: 0.45 });  // press ~2.4
+      tl.fromTo($("#__ID__-bell"), { backgroundColor: "#EFEFF2" }, { backgroundColor: "#FFF4D6", duration: 0.2, immediateRender: false }, p2);
+      [[0, -18], [-18, 16], [16, -12], [-12, 8], [8, 0]].forEach(([a, b], i) =>
+        tl.fromTo($("#__ID__-bi"), { rotation: a, transformOrigin: "50% 10%" }, { rotation: b, duration: 0.07, ease: "none", immediateRender: false }, p2 + 0.02 + i * 0.07));
+      tl.fromTo($("#__ID__-line"), { opacity: 1 }, { opacity: 0, duration: 0.15, immediateRender: false }, p2 + 0.02);
+      CM.pop(tl, $("#__ID__-on"), p2 + 0.1);
+      tl.fromTo($("#__ID__-wrap"), { opacity: 1, y: 0, filter: "blur(0px)" }, { opacity: 0, y: 50, filter: "blur(10px)", duration: 0.35, ease: "power3.in", immediateRender: false }, __OUT__);
+      window.__timelines["__ID__"] = tl;
+    })();
+  </script>
+</template>

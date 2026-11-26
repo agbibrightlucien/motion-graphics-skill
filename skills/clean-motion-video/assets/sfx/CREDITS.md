@@ -1,0 +1,84 @@
+# Sound kit credits
+
+## CC BY 4.0 (credit wherever a video using them is published; `cmv.py assemble` writes the project's CREDITS.md)
+- `bubble-pop.mp3`: "BUBBLE POP" via Openverse/Freesound, CC BY 4.0
+- `granular-transition.mp3`: "Electrical Transition" by qubodup, CC BY 4.0, https://freesound.org/people/qubodup/sounds/211639
+- `magic-whoosh.mp3`: "Imperius - Wings Swing - 02" by SoundFlakes, CC BY 4.0, https://freesound.org/people/SoundFlakes/sounds/492538
+- `swish.mp3`: "Swish" via Openverse/Freesound, CC BY 4.0
+- `whoosh-pass.mp3`: "Whoosh.wav" via Openverse/Freesound, CC BY 4.0
+
+## CC0 (no credit required; listed for transparency)
+- `appear-v1.mp3`: "UI Confirm" by unfa (CC0) https://freesound.org/people/unfa/sounds/584184
+- `appear-v2.mp3`: "07-confirmation.wav" by drzhnn (CC0) https://freesound.org/people/drzhnn/sounds/199940
+- `appear-v3.mp3`: "PauseMenu_Appear" by BaggoNotes (CC0) https://freesound.org/people/BaggoNotes/sounds/721512
+- `bass-drop.mp3`: "bass drop" (Freesound, CC0)
+- `click-v1.mp3`: "SFX UI Button Click" by suntemple (CC0) https://freesound.org/people/suntemple/sounds/253168
+- `click-v2.mp3`: "UI Button Click" by benzix2 (CC0) https://freesound.org/people/benzix2/sounds/467951
+- `click-v3.mp3`: "Click Tick.wav" by malle99 (CC0) https://freesound.org/people/malle99/sounds/384187
+- `click-v4.mp3`: "Menu Scroll/ Selection Sound" by CS279 (CC0) https://freesound.org/people/CS279/sounds/200469
+- `click-v5.mp3`: "Menu FX 01" by Nightflame (CC0) https://freesound.org/people/Nightflame/sounds/397604
+- `enter.mp3`: "Enter Button - Low Robotic" (Freesound, CC0)
+- `error-synth-1.mp3`: synthesised for this kit
+- `error-synth-2.mp3`: synthesised for this kit
+- `error-synth-3.mp3`: synthesised for this kit
+- `error-synth-4.mp3`: synthesised for this kit
+- `error-synth-5.mp3`: synthesised for this kit
+- `error-v1.mp3`: "buzzer.mp3" by Loyalty_Freak_Music (CC0) https://freesound.org/people/Loyalty_Freak_Music/sounds/407466
+- `error-v2.mp3`: "Wrong Answer Buzzer" by -Andreas (CC0) https://freesound.org/people/-Andreas/sounds/650842
+- `error-v3.mp3`: "Negative.wav" by iwanPlays (CC0) https://freesound.org/people/iwanPlays/sounds/626085
+- `error-v4.mp3`: "SFX_MASSIVELYINCORREKT_04.wav" by MrFossy (CC0) https://freesound.org/people/MrFossy/sounds/590033
+- `error-v5.mp3`: "Wrong Answer" by -Andreas (CC0) https://freesound.org/people/-Andreas/sounds/648462
+- `glass-swell.mp3`: "Inhale with glass" (Freesound, CC0)
+- `impact-v1.mp3`: "low thump.wav" by Reitanna (CC0) https://freesound.org/people/Reitanna/sounds/332670
+- `impact-v2.mp3`: "C-SPENCE_KICK01.wav" by HUMANOISEMAKER (CC0) https://freesound.org/people/HUMANOISEMAKER/sounds/157409
+- `impact-v3.mp3`: "Impact Hit at soft but big material" by doudar41 (CC0) https://freesound.org/people/doudar41/sounds/728515
+- `key-v1.mp3`: "enter key" by uEffects (CC0) https://freesound.org/people/uEffects/sounds/180997
+- `key-v2.mp3`: "Vintage Keyboard 4" by jim-ph (CC0) https://freesound.org/people/jim-ph/sounds/194798
+- `key-v3.mp3`: "Vintage Keyboard 1" by jim-ph (CC0) https://freesound.org/people/jim-ph/sounds/194795
+- `key-v4.mp3`: "t key" by uEffects (CC0) https://freesound.org/people/uEffects/sounds/181001
+- `key-v5.mp3`: "mechanical key hard.wav" by bigmonmulgrew (CC0) https://freesound.org/people/bigmonmulgrew/sounds/378085
+- `mech-typing.mp3`: "MECH-KEYBOARD-01" (Freesound, CC0)
+- `message-ping.mp3`: "Quiz Gameshow Correct Ping 14" (Freesound, CC0)
+- `notify-v1.mp3`: "Notification Sound" by thehorriblejoke (CC0) https://freesound.org/people/thehorriblejoke/sounds/583554
+- `notify-v2.mp3`: "Notification Sound" by Rickplayer (CC0) https://freesound.org/people/Rickplayer/sounds/530480
+- `notify-v3.mp3`: "Notification sound 2" by Rickplayer (CC0) https://freesound.org/people/Rickplayer/sounds/530482
+- `notify-v4.mp3`: "Chime Notification" by Jofae (CC0) https://freesound.org/people/Jofae/sounds/380482
+- `ping-v1.mp3`: "Ding 1" by greenvwbeetle (CC0) https://freesound.org/people/greenvwbeetle/sounds/241288
+- `ping-v2.mp3`: "Supershort Ping, Or Short Notification.wav" by MATRIXXX_ (CC0) https://freesound.org/people/MATRIXXX_/sounds/495650
+- `ping-v3.mp3`: "sqeeeek_bell_ting1.wav" by sqeeeek (CC0) https://freesound.org/people/sqeeeek/sounds/237106
+- `pop-v1.mp3`: "Pop Sound" by ConarB13 (CC0) https://freesound.org/people/ConarB13/sounds/401542
+- `pop-v2.mp3`: "Simple Pop Sound Effect" by SplendidJams (CC0) https://freesound.org/people/SplendidJams/sounds/570459
+- `pop-v3.mp3`: "Pop 2" by greenvwbeetle (CC0) https://freesound.org/people/greenvwbeetle/sounds/244654
+- `pop-v4.mp3`: "Bubble Pop" by Mafon2 (CC0) https://freesound.org/people/Mafon2/sounds/253956
+- `pop-v5.mp3`: "cartoon pop or drip" by AlaskaRobotics (CC0) https://freesound.org/people/AlaskaRobotics/sounds/221091
+- `rise-crash.mp3`: "rise-crash" (Freesound, CC0)
+- `shutter.mp3`: "Camera Shutter" (Freesound, CC0)
+- `success-v1.mp3`: "[UI Sound] Approval - High Pitched Bell Synth" by GabFitzgerald (CC0) https://freesound.org/people/GabFitzgerald/sounds/625174
+- `success-v2.mp3`: "Beep 4" by CogFireStudios (CC0) https://freesound.org/people/CogFireStudios/sounds/528862
+- `success-v3.mp3`: "Beep 2" by CogFireStudios (CC0) https://freesound.org/people/CogFireStudios/sounds/528864
+- `swoosh-fast.mp3`: "swosh-08" (Freesound, CC0)
+- `ui-tap.mp3`: "UI Button Click" (Freesound, CC0)
+- `whoosh-low.mp3`: "whoosh_short_low" (Freesound, CC0)
+- `whoosh-v1.mp3`: "Short Woosh 04.wav" by ironcross32 (CC0) https://freesound.org/people/ironcross32/sounds/582895
+- `whoosh-v2.mp3`: "swoosh wind 09.flac" by qubodup (CC0) https://freesound.org/people/qubodup/sounds/59996
+- `whoosh-v3.mp3`: "wipe2.wav" by Sclolex (CC0) https://freesound.org/people/Sclolex/sounds/179779
+- `whoosh-v4.mp3`: "wipe1.wav" by Sclolex (CC0) https://freesound.org/people/Sclolex/sounds/179780
+- `whoosh-v5.mp3`: "whoosh_short_mid.wav" by DJT4NN3R (CC0) https://freesound.org/people/DJT4NN3R/sounds/449996
+
+## HyperFrames sound library (not included in this repository)
+These are Pixabay Content License files that ship with HyperFrames' `media-use` skill. The licence allows use in videos but not redistribution of the raw files, so `python scripts/cmv.py setup` copies and levels them from your own HyperFrames install. Without them the kit still works: every role has other takes.
+- `chime.mp3`
+- `click-soft.mp3`
+- `error.mp3`
+- `glitch-1.mp3`
+- `glitch-3.mp3`
+- `impact-bass-1.mp3`
+- `key-press.mp3`
+- `notification.mp3`
+- `ping.mp3`
+- `pop.mp3`
+- `riser.mp3`
+- `sparkle.mp3`
+- `typing.mp3`
+- `whoosh-cinematic.mp3`
+- `whoosh-short.mp3`

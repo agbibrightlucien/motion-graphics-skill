@@ -1,0 +1,235 @@
+{
+ "scenes": [
+  {
+   "id": "hook",
+   "start": 0.0,
+   "voice": "assets/voice/hook.wav",
+   "voice_at": 0.15,
+   "voice_dur": 2.027,
+   "words": [
+    {
+     "text": "What",
+     "t": 0.15,
+     "end": 0.39
+    },
+    {
+     "text": "if",
+     "t": 0.39,
+     "end": 0.55
+    },
+    {
+     "text": "your",
+     "t": 0.55,
+     "end": 0.71
+    },
+    {
+     "text": "money",
+     "t": 0.71,
+     "end": 1.11
+    },
+    {
+     "text": "while",
+     "t": 1.27,
+     "end": 1.51
+    },
+    {
+     "text": "you",
+     "t": 1.51,
+     "end": 1.59
+    },
+    {
+     "text": "slept?",
+     "t": 1.59,
+     "end": 2.07
+    }
+   ],
+   "duration": 3.0
+  },
+  {
+   "id": "idea",
+   "start": 3.0,
+   "voice": "assets/voice/idea.wav",
+   "voice_at": 0.15,
+   "voice_dur": 3.691,
+   "words": [
+    {
+     "text": "That's",
+     "t": 0.15,
+     "end": 0.47
+    },
+    {
+     "text": "compound",
+     "t": 0.47,
+     "end": 1.19
+    },
+    {
+     "text": "interest.",
+     "t": 1.19,
+     "end": 1.83
+    },
+    {
+     "text": "You",
+     "t": 1.83,
+     "end": 2.07
+    },
+    {
+     "text": "earn",
+     "t": 2.07,
+     "end": 2.47
+    },
+    {
+     "text": "interest",
+     "t": 2.47,
+     "end": 2.87
+    },
+    {
+     "text": "on",
+     "t": 2.87,
+     "end": 3.03
+    },
+    {
+     "text": "your",
+     "t": 3.03,
+     "end": 3.19
+    },
+    {
+     "text": "interest.",
+     "t": 3.19,
+     "end": 3.75
+    }
+   ],
+   "duration": 4.1
+  },
+  {
+   "id": "grow",
+   "start": 7.1,
+   "voice": "assets/voice/grow.wav",
+   "voice_at": 0.15,
+   "voice_dur": 5.077,
+   "words": [
+    {
+     "text": "ten",
+     "t": 0.23,
+     "end": 0.39
+    },
+    {
+     "text": "thousand",
+     "t": 0.55,
+     "end": 0.95
+    },
+    {
+     "text": "dollars",
+     "t": 0.95,
+     "end": 1.35
+    },
+    {
+     "text": "at",
+     "t": 1.43,
+     "end": 1.75
+    },
+    {
+     "text": "eight",
+     "t": 1.75,
+     "end": 2.07
+    },
+    {
+     "text": "percent",
+     "t": 2.07,
+     "end": 2.47
+    },
+    {
+     "text": "becomes",
+     "t": 2.63,
+     "end": 3.11
+    },
+    {
+     "text": "forty",
+     "t": 3.11,
+     "end": 3.43
+    },
+    {
+     "text": "six",
+     "t": 3.51,
+     "end": 3.67
+    },
+    {
+     "text": "thousand",
+     "t": 3.75,
+     "end": 4.23
+    },
+    {
+     "text": "in",
+     "t": 4.23,
+     "end": 4.39
+    },
+    {
+     "text": "twenty",
+     "t": 4.39,
+     "end": 4.71
+    },
+    {
+     "text": "years.",
+     "t": 4.71,
+     "end": 5.11
+    }
+   ],
+   "duration": 5.467
+  },
+  {
+   "id": "early",
+   "start": 12.567,
+   "voice": "assets/voice/early.wav",
+   "voice_at": 0.15,
+   "voice_dur": 2.816,
+   "words": [
+    {
+     "text": "The",
+     "t": 0.15,
+     "end": 0.31
+    },
+    {
+     "text": "secret",
+     "t": 0.31,
+     "end": 0.63
+    },
+    {
+     "text": "isn't",
+     "t": 0.63,
+     "end": 1.03
+    },
+    {
+     "text": "how",
+     "t": 1.03,
+     "end": 1.27
+    },
+    {
+     "text": "much,",
+     "t": 1.27,
+     "end": 1.67
+    },
+    {
+     "text": "it's",
+     "t": 1.67,
+     "end": 1.99
+    },
+    {
+     "text": "how",
+     "t": 1.99,
+     "end": 2.23
+    },
+    {
+     "text": "early.",
+     "t": 2.23,
+     "end": 2.79
+    }
+   ],
+   "duration": 3.2
+  },
+  {
+   "id": "end",
+   "start": 15.767,
+   "duration": 2.6
+  }
+ ],
+ "total": 18.367
+}

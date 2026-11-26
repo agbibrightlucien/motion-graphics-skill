@@ -1,0 +1,91 @@
+/* Example shared theme for a chaptered long-form film (landscape 1920x1080). Copied into every chapter's assets/.
+ * Copied into every chapter's assets/. Safe text area: x 192-1728, y 108-972. */
+.ep-line   { position: absolute; left: 192px; right: 192px; text-align: center; font-family: var(--font); color: var(--ink);
+             font-weight: 500; letter-spacing: -0.03em; line-height: 1.1; }
+.ep-hero   { font-size: 150px; font-weight: 700; letter-spacing: -0.05em; }
+.ep-big    { font-size: 108px; font-weight: 600; letter-spacing: -0.04em; }
+.ep-mid    { font-size: 84px; }
+.ep-sub    { font-size: 58px; color: var(--muted); letter-spacing: -0.02em; }
+.ep-line b { font-weight: inherit; color: var(--accent); }
+.ep-line em{ font-style: normal; color: var(--muted); }
+.ep-red    { color: #E5484D !important; }
+.ep-green  { color: #1F9D4C !important; }
+.ep-left   { text-align: left; right: auto; }
+
+/* receipt */
+.ep-rc     { position: absolute; width: 700px; background: #fff; border-radius: 18px 18px 0 0; padding: 44px 48px 36px;
+             box-shadow: var(--shadow); font-family: "JetBrains Mono", monospace; color: #111113; }
+.ep-rc::after { content: ""; position: absolute; left: 0; right: 0; bottom: -22px; height: 22px;
+             background: linear-gradient(-45deg, transparent 16px, #fff 0) 0 0 / 22px 22px repeat-x,
+                         linear-gradient(45deg, transparent 16px, #fff 0) 0 0 / 22px 22px repeat-x; }
+.ep-rc h4  { font-size: 34px; font-weight: 700; text-align: center; letter-spacing: 0.12em; }
+.ep-rc .meta { font-size: 28px; color: #86868B; text-align: center; margin-top: 8px; }
+.ep-rc hr  { border: 0; border-top: 2px dashed #D6D6DB; margin: 24px 0; }
+.ep-rc .ri { display: flex; justify-content: space-between; font-size: 32px; height: 62px; align-items: center; }
+.ep-rc .ri span:last-child { font-variant-numeric: tabular-nums; }
+.ep-rc .tot { display: flex; justify-content: space-between; font-size: 42px; font-weight: 700; }
+
+/* social post */
+.ep-post   { position: absolute; width: 460px; background: #fff; border-radius: 30px; box-shadow: var(--shadow);
+             overflow: hidden; font-family: var(--font); color: #111113; }
+.ep-post .hd { display: flex; align-items: center; gap: 16px; padding: 22px 24px; font-size: 28px; font-weight: 600; }
+.ep-post .av { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #FFB86B, #F25F9A); }
+.ep-post .ph { height: 380px; background: linear-gradient(160deg, #FFD7A8 0%, #F79C7A 45%, #6B4E9B 100%); position: relative; }
+.ep-post .ph i { position: absolute; left: 50%; bottom: 0; width: 220px; height: 150px; margin-left: -110px;
+             background: rgba(255,255,255,0.28); border-radius: 110px 110px 0 0; }
+.ep-post .ft { padding: 20px 24px 26px; font-size: 28px; }
+.ep-post .lk { display: flex; align-items: center; gap: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ep-post .cap { color: #3A3A3C; margin-top: 8px; min-height: 34px; }
+
+/* notification */
+.ep-nt     { position: absolute; width: 680px; display: flex; gap: 22px; align-items: center; padding: 26px 30px;
+             background: rgba(255,255,255,0.92); border-radius: 34px; box-shadow: var(--shadow); font-family: var(--font); color: #111113; }
+.ep-nt .ic { width: 76px; height: 76px; border-radius: 20px; flex: none; display: flex; align-items: center; justify-content: center; }
+.ep-nt .tt { font-size: 28px; font-weight: 700; }
+.ep-nt .bd { font-size: 28px; color: #3A3A3C; margin-top: 4px; }
+.ep-nt .tm { margin-left: auto; align-self: flex-start; font-size: 28px; color: #6E6E73; }
+
+/* balance + bank */
+.ep-bal    { position: absolute; background: #fff; border-radius: 34px; box-shadow: var(--shadow); padding: 40px 48px;
+             font-family: var(--font); color: #111113; }
+.ep-bal .lb { font-size: 36px; color: #86868B; font-weight: 500; }
+.ep-bal .am { font-size: 160px; font-weight: 700; letter-spacing: -0.045em; font-variant-numeric: tabular-nums; line-height: 1.05; margin-top: 6px; }
+.ep-bank   { position: absolute; width: 720px; background: #fff; border-radius: 40px; box-shadow: var(--shadow); padding: 40px 44px;
+             font-family: var(--font); color: #111113; }
+.ep-bank .lb { font-size: 30px; color: #6E6E73; }
+.ep-bank .am { font-size: 88px; font-weight: 700; letter-spacing: -0.045em; font-variant-numeric: tabular-nums; margin: 4px 0 22px; }
+.ep-bank .tx { display: flex; align-items: center; gap: 20px; height: 76px; border-top: 1.5px solid #EFEFF2; font-size: 28px; }
+.ep-bank .tx .dot { width: 48px; height: 48px; border-radius: 14px; flex: none; }
+.ep-bank .tx .v { margin-left: auto; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.ep-chip   { position: absolute; display: inline-flex; align-items: center; gap: 12px; background: #fff; border: 1.5px solid #E3E3E8;
+             border-radius: 999px; padding: 14px 26px; font-family: var(--font); font-size: 30px; font-weight: 600; color: #111113; box-shadow: var(--shadow); white-space: nowrap; }
+.ep-avatar { position: absolute; width: 150px; height: 150px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+             font-family: var(--font); font-size: 52px; font-weight: 700; color: #fff; box-shadow: var(--shadow); }
+.ep-dark   { position: absolute; inset: 0; background: #0E0E10; }
+
+/* section title (points 1-6) */
+.ep-segs   { position: absolute; left: 0; right: 0; top: 250px; display: flex; justify-content: center; gap: 14px; }
+.ep-segs i { display: block; width: 110px; height: 10px; border-radius: 5px; background: #E3E3E8; position: relative; overflow: hidden; }
+.ep-segs i b { position: absolute; inset: 0; background: var(--accent); transform-origin: 0 50%; }
+.ep-pill   { display: inline-flex; align-items: center; background: #111113; color: #fff; border-radius: 999px; padding: 20px 44px;
+             font-family: var(--font); font-size: 44px; font-weight: 600; letter-spacing: -0.02em; }
+.ep-num    { font-variant-numeric: tabular-nums; color: #6E6E73; margin-right: 18px; }
+
+/* person figure */
+.ep-person { position: absolute; width: 320px; height: 420px; }
+.ep-person .hd { position: absolute; left: 85px; top: 0; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(160deg, #D9D9DE, #C4C4CB); }
+.ep-person .bd { position: absolute; left: 0; top: 170px; width: 320px; height: 250px; border-radius: 160px 160px 40px 40px; background: linear-gradient(160deg, #D9D9DE, #BDBDC4); }
+.ep-tag    { position: absolute; display: inline-flex; align-items: center; gap: 12px; background: #fff; border-radius: 999px; padding: 14px 26px;
+             font-family: var(--font); font-size: 36px; font-weight: 600; color: #111113; box-shadow: var(--shadow); white-space: nowrap; }
+.ep-tag::before { content: ""; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
+.ep-tag.red::before { background: #E5484D; }
+
+/* info panel rows */
+.ep-panel  { position: absolute; background: #fff; border-radius: 34px; box-shadow: var(--shadow); padding: 36px 40px; font-family: var(--font); color: #111113; }
+.ep-panel h5 { font-size: 30px; color: #6E6E73; font-weight: 600; margin-bottom: 14px; }
+.ep-panel .pr { display: flex; align-items: center; justify-content: space-between; gap: 20px; height: 84px; border-top: 1.5px solid #EFEFF2; font-size: 34px; font-weight: 500; }
+.ep-q      { display: inline-flex; align-items: center; justify-content: center; min-width: 120px; height: 52px; padding: 0 16px; border-radius: 14px;
+             background: #F0F0F3; color: #6E6E73; font-family: "JetBrains Mono", monospace; font-size: 30px; font-weight: 700; }
+.ep-stamp  { position: absolute; border: 8px solid #E5484D; color: #E5484D; border-radius: 18px; padding: 10px 28px; font-family: var(--font);
+             font-size: 60px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; background: #fff; }

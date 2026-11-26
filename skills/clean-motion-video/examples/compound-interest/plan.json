@@ -1,0 +1,123 @@
+{
+ "title": "Compound interest",
+ "format": "vertical",
+ "theme": "light",
+ "voice": "am_michael",
+ "speed": 1.05,
+ "music": null,
+ "scenes": [
+  {
+   "id": "hook",
+   "vo": "What if your money grew while you slept?",
+   "min": 3.0,
+   "lead": 0.15
+  },
+  {
+   "id": "idea",
+   "vo": "That's compound interest. You earn interest on your interest.",
+   "min": 3.0
+  },
+  {
+   "id": "grow",
+   "vo": "Ten thousand dollars at eight percent becomes forty six thousand in twenty years.",
+   "min": 3.5
+  },
+  {
+   "id": "early",
+   "vo": "The secret isn't how much. It's how early.",
+   "min": 2.5
+  },
+  {
+   "id": "end",
+   "min": 2.6
+  }
+ ],
+ "sfx": [
+  {
+   "scene": "hook",
+   "t": 0.3,
+   "sound": "enter"
+  },
+  {
+   "scene": "hook",
+   "t": 0.75,
+   "sound": "mech-typing"
+  },
+  {
+   "scene": "hook",
+   "t": 1.05,
+   "sound": "key-press"
+  },
+  {
+   "scene": "hook",
+   "t": 1.86,
+   "sound": "ui-tap"
+  },
+  {
+   "scene": "hook",
+   "t": 2.64,
+   "sound": "whoosh-short"
+  },
+  {
+   "scene": "idea",
+   "t": 1.8,
+   "sound": "enter"
+  },
+  {
+   "scene": "idea",
+   "t": 2.42,
+   "sound": "pop"
+  },
+  {
+   "scene": "idea",
+   "t": 3.15,
+   "sound": "bubble-pop"
+  },
+  {
+   "scene": "idea",
+   "t": 3.84,
+   "sound": "swoosh-fast"
+  },
+  {
+   "scene": "grow",
+   "t": 0.2,
+   "sound": "enter"
+  },
+  {
+   "scene": "grow",
+   "t": 1.72,
+   "sound": "pop"
+  },
+  {
+   "scene": "grow",
+   "t": 4.8,
+   "sound": "glass-swell"
+  },
+  {
+   "scene": "grow",
+   "t": 4.82,
+   "sound": "ping"
+  },
+  {
+   "scene": "grow",
+   "t": 5.22,
+   "sound": "whoosh-low"
+  },
+  {
+   "scene": "early",
+   "t": 1.62,
+   "sound": "swish"
+  },
+  {
+   "scene": "early",
+   "t": 2.23,
+   "sound": "pop",
+   "volume": 0.4
+  },
+  {
+   "scene": "end",
+   "t": 0.3,
+   "sound": "magic-whoosh"
+  }
+ ]
+}

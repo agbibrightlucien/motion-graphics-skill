@@ -1,0 +1,1 @@
+Worked example: an 18 s vertical explainer built with this skill. timing.json = output of cmv.py voice (cache removed). Rendered result lives in the user's motion graphics folder: projects/compound-interest/renders/compound-interest_master.mp4.

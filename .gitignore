@@ -1,0 +1,14 @@
+# video work happens in projects/ and must not be committed
+projects/
+renders/
+**/renders/
+**/.hyperframes/
+**/.cmv-tx/
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+# never commit secrets
+.env
+*.key

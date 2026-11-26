@@ -1,0 +1,762 @@
+{
+ "whoosh-short": {
+  "file": "whoosh-short.mp3",
+  "role": "move: small card/text slide, whip (take A)",
+  "duration": 0.5,
+  "peak": 0.16,
+  "volume": 0.55,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "whoosh"
+ },
+ "swoosh-fast": {
+  "file": "swoosh-fast.mp3",
+  "role": "move: fast whip / swipe (take B)",
+  "duration": 0.33,
+  "peak": 0.05,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"swosh-08\" (Freesound, CC0)",
+  "group": "whoosh"
+ },
+ "whoosh-low": {
+  "file": "whoosh-low.mp3",
+  "role": "move: soft low whoosh under a big scale/morph (take C)",
+  "duration": 1.6,
+  "peak": 0.21,
+  "volume": 0.9,
+  "license": "cc0",
+  "credit": "\"whoosh_short_low\" (Freesound, CC0)",
+  "group": "whoosh-big"
+ },
+ "whoosh-pass": {
+  "file": "whoosh-pass.mp3",
+  "role": "move: big pass-by / scene transition",
+  "duration": 3.62,
+  "peak": 2.87,
+  "volume": 0.35,
+  "license": "by",
+  "credit": "\"Whoosh.wav\" via Openverse/Freesound, CC BY 4.0",
+  "group": "whoosh-big"
+ },
+ "swish": {
+  "file": "swish.mp3",
+  "role": "move: airy swish, soft scene change",
+  "duration": 2.7,
+  "peak": 0.72,
+  "volume": 0.8,
+  "license": "by",
+  "credit": "\"Swish\" via Openverse/Freesound, CC BY 4.0",
+  "group": "whoosh-big"
+ },
+ "magic-whoosh": {
+  "file": "magic-whoosh.mp3",
+  "role": "reveal: shimmering whoosh into a hero/logo",
+  "duration": 1.85,
+  "peak": 0.8,
+  "volume": 0.45,
+  "license": "by",
+  "credit": "\"Imperius - Wings Swing - 02\" by SoundFlakes, CC BY 4.0, https://freesound.org/people/SoundFlakes/sounds/492538",
+  "group": "reveal"
+ },
+ "whoosh-cinematic": {
+  "file": "whoosh-cinematic.mp3",
+  "role": "transition: long swell that peaks on a cut",
+  "duration": 4.72,
+  "peak": 2.54,
+  "volume": 0.35,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "reveal"
+ },
+ "granular-transition": {
+  "file": "granular-transition.mp3",
+  "role": "transition: granular/electric texture on a morph or glitch",
+  "duration": 4.06,
+  "peak": 1.79,
+  "volume": 0.35,
+  "license": "by",
+  "credit": "\"Electrical Transition\" by qubodup, CC BY 4.0, https://freesound.org/people/qubodup/sounds/211639",
+  "group": "glitch"
+ },
+ "glass-swell": {
+  "file": "glass-swell.mp3",
+  "role": "riser: short glassy inhale into a reveal",
+  "duration": 1.31,
+  "peak": 0.79,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Inhale with glass\" (Freesound, CC0)",
+  "group": "riser"
+ },
+ "rise-crash": {
+  "file": "rise-crash.mp3",
+  "role": "riser: build into the payoff (peak ~4 s in)",
+  "duration": 7.75,
+  "peak": 3.99,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"rise-crash\" (Freesound, CC0)",
+  "group": "riser"
+ },
+ "riser": {
+  "file": "riser.mp3",
+  "role": "riser: long cinematic build (peak ~3.5 s)",
+  "duration": 4.87,
+  "peak": 4.05,
+  "volume": 0.3,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "riser"
+ },
+ "enter": {
+  "file": "enter.mp3",
+  "role": "appear: UI element lands / confirm (the 'Enter' sound)",
+  "duration": 0.726,
+  "peak": 0.17,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Enter Button - Low Robotic\" (Freesound, CC0)",
+  "group": "appear"
+ },
+ "pop": {
+  "file": "pop.mp3",
+  "role": "appear: chip, badge, word or icon pops in",
+  "duration": 0.42,
+  "peak": 0.11,
+  "volume": 0.5,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "pop"
+ },
+ "bubble-pop": {
+  "file": "bubble-pop.mp3",
+  "role": "appear: tiny bubble pop (rotate with pop)",
+  "duration": 0.2,
+  "peak": 0.09,
+  "volume": 0.45,
+  "license": "by",
+  "credit": "\"BUBBLE POP\" via Openverse/Freesound, CC BY 4.0",
+  "group": "pop"
+ },
+ "ui-tap": {
+  "file": "ui-tap.mp3",
+  "role": "click: cursor tap on a button",
+  "duration": 0.123,
+  "peak": 0.0,
+  "volume": 0.6,
+  "license": "cc0",
+  "credit": "\"UI Button Click\" (Freesound, CC0)",
+  "group": "click"
+ },
+ "click-soft": {
+  "file": "click-soft.mp3",
+  "role": "click: quiet selection / toggle",
+  "duration": 0.31,
+  "peak": 0.05,
+  "volume": 0.6,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "click"
+ },
+ "key-press": {
+  "file": "key-press.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.28,
+  "peak": 0.07,
+  "volume": 0.6,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "key"
+ },
+ "mech-typing": {
+  "file": "mech-typing.mp3",
+  "role": "typing: short mechanical burst",
+  "duration": 0.31,
+  "peak": 0.02,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"MECH-KEYBOARD-01\" (Freesound, CC0)",
+  "group": "typing"
+ },
+ "typing": {
+  "file": "typing.mp3",
+  "role": "typing: 1.5 s burst of keys",
+  "duration": 1.5,
+  "peak": 0.45,
+  "volume": 0.6,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "typing"
+ },
+ "message-ping": {
+  "file": "message-ping.mp3",
+  "role": "notify: message / chat bubble arrives",
+  "duration": 1.91,
+  "peak": 0.0,
+  "volume": 0.6,
+  "license": "cc0",
+  "credit": "\"Quiz Gameshow Correct Ping 14\" (Freesound, CC0)",
+  "group": "notify"
+ },
+ "notification": {
+  "file": "notification.mp3",
+  "role": "notify: toast / notification card",
+  "duration": 1.57,
+  "peak": 0.22,
+  "volume": 0.45,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "notify"
+ },
+ "ping": {
+  "file": "ping.mp3",
+  "role": "accent: data point / stat lands",
+  "duration": 1.08,
+  "peak": 0.32,
+  "volume": 0.5,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "ping"
+ },
+ "chime": {
+  "file": "chime.mp3",
+  "role": "accent: success / done",
+  "duration": 2.5,
+  "peak": 0.41,
+  "volume": 0.5,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "success"
+ },
+ "sparkle": {
+  "file": "sparkle.mp3",
+  "role": "accent: shine on a hero element",
+  "duration": 1.802,
+  "peak": 0.02,
+  "volume": 0.35,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "success"
+ },
+ "shutter": {
+  "file": "shutter.mp3",
+  "role": "accent: snapshot / frame freeze",
+  "duration": 0.295,
+  "peak": 0.1,
+  "volume": 0.5,
+  "license": "cc0",
+  "credit": "\"Camera Shutter\" (Freesound, CC0)",
+  "group": "shutter"
+ },
+ "impact-bass-1": {
+  "file": "impact-bass-1.mp3",
+  "role": "impact: logo/headline slam",
+  "duration": 2.116,
+  "peak": 0.07,
+  "volume": 0.4,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "impact"
+ },
+ "bass-drop": {
+  "file": "bass-drop.mp3",
+  "role": "impact: drop on the payoff (use once)",
+  "duration": 4.47,
+  "peak": 0.0,
+  "volume": 0.3,
+  "license": "cc0",
+  "credit": "\"bass drop\" (Freesound, CC0)",
+  "group": "impact"
+ },
+ "glitch-1": {
+  "file": "glitch-1.mp3",
+  "role": "glitch: barcode/streak transition",
+  "duration": 2.638,
+  "peak": 0.94,
+  "volume": 0.3,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "glitch"
+ },
+ "glitch-3": {
+  "file": "glitch-3.mp3",
+  "role": "glitch: subtle digital shift",
+  "duration": 2.2,
+  "peak": 1.82,
+  "volume": 0.45,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "glitch"
+ },
+ "error": {
+  "file": "error.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 1.05,
+  "peak": 0.73,
+  "volume": 0.5,
+  "license": "library",
+  "credit": "HyperFrames sound library (Pixabay Content License): installed by `cmv.py setup` from your HyperFrames media-use skill, not redistributed here",
+  "group": "error"
+ },
+ "error-synth-1": {
+  "file": "error-synth-1.mp3",
+  "role": "problem beat: 'wrong' / failure (synthesised)",
+  "duration": 0.7,
+  "peak": 0.16,
+  "volume": 0.38,
+  "license": "cc0",
+  "credit": "synthesised for this kit",
+  "group": "error"
+ },
+ "error-synth-2": {
+  "file": "error-synth-2.mp3",
+  "role": "problem beat: 'wrong' / failure (synthesised)",
+  "duration": 0.55,
+  "peak": 0.13,
+  "volume": 0.38,
+  "license": "cc0",
+  "credit": "synthesised for this kit",
+  "group": "error"
+ },
+ "error-synth-3": {
+  "file": "error-synth-3.mp3",
+  "role": "problem beat: 'wrong' / failure (synthesised)",
+  "duration": 0.6,
+  "peak": 0.04,
+  "volume": 0.38,
+  "license": "cc0",
+  "credit": "synthesised for this kit",
+  "group": "error"
+ },
+ "error-synth-4": {
+  "file": "error-synth-4.mp3",
+  "role": "problem beat: 'wrong' / failure (synthesised)",
+  "duration": 0.6,
+  "peak": 0.0,
+  "volume": 0.38,
+  "license": "cc0",
+  "credit": "synthesised for this kit",
+  "group": "error"
+ },
+ "error-synth-5": {
+  "file": "error-synth-5.mp3",
+  "role": "problem beat: 'wrong' / failure (synthesised)",
+  "duration": 0.45,
+  "peak": 0.04,
+  "volume": 0.38,
+  "license": "cc0",
+  "credit": "synthesised for this kit",
+  "group": "error"
+ },
+ "error-v1": {
+  "file": "error-v1.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 0.458,
+  "peak": 0.17,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"buzzer.mp3\" by Loyalty_Freak_Music (CC0) https://freesound.org/people/Loyalty_Freak_Music/sounds/407466",
+  "group": "error"
+ },
+ "error-v2": {
+  "file": "error-v2.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 0.279,
+  "peak": 0.2,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Wrong Answer Buzzer\" by -Andreas (CC0) https://freesound.org/people/-Andreas/sounds/650842",
+  "group": "error"
+ },
+ "error-v3": {
+  "file": "error-v3.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 0.463,
+  "peak": 0.23,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Negative.wav\" by iwanPlays (CC0) https://freesound.org/people/iwanPlays/sounds/626085",
+  "group": "error"
+ },
+ "error-v4": {
+  "file": "error-v4.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 0.25,
+  "peak": 0.01,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"SFX_MASSIVELYINCORREKT_04.wav\" by MrFossy (CC0) https://freesound.org/people/MrFossy/sounds/590033",
+  "group": "error"
+ },
+ "error-v5": {
+  "file": "error-v5.mp3",
+  "role": "problem beat: 'wrong' / failure",
+  "duration": 1.063,
+  "peak": 0.51,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Wrong Answer\" by -Andreas (CC0) https://freesound.org/people/-Andreas/sounds/648462",
+  "group": "error"
+ },
+ "whoosh-v1": {
+  "file": "whoosh-v1.mp3",
+  "role": "move: small slide / whip",
+  "duration": 0.234,
+  "peak": 0.03,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Short Woosh 04.wav\" by ironcross32 (CC0) https://freesound.org/people/ironcross32/sounds/582895",
+  "group": "whoosh"
+ },
+ "whoosh-v2": {
+  "file": "whoosh-v2.mp3",
+  "role": "move: small slide / whip",
+  "duration": 0.186,
+  "peak": 0.03,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"swoosh wind 09.flac\" by qubodup (CC0) https://freesound.org/people/qubodup/sounds/59996",
+  "group": "whoosh"
+ },
+ "whoosh-v3": {
+  "file": "whoosh-v3.mp3",
+  "role": "move: small slide / whip",
+  "duration": 0.94,
+  "peak": 0.4,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"wipe2.wav\" by Sclolex (CC0) https://freesound.org/people/Sclolex/sounds/179779",
+  "group": "whoosh"
+ },
+ "whoosh-v4": {
+  "file": "whoosh-v4.mp3",
+  "role": "move: small slide / whip",
+  "duration": 1.464,
+  "peak": 0.32,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"wipe1.wav\" by Sclolex (CC0) https://freesound.org/people/Sclolex/sounds/179780",
+  "group": "whoosh"
+ },
+ "whoosh-v5": {
+  "file": "whoosh-v5.mp3",
+  "role": "move: small slide / whip",
+  "duration": 1.4,
+  "peak": 0.19,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"whoosh_short_mid.wav\" by DJT4NN3R (CC0) https://freesound.org/people/DJT4NN3R/sounds/449996",
+  "group": "whoosh"
+ },
+ "appear-v1": {
+  "file": "appear-v1.mp3",
+  "role": "appear: UI element lands",
+  "duration": 0.271,
+  "peak": 0.06,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"UI Confirm\" by unfa (CC0) https://freesound.org/people/unfa/sounds/584184",
+  "group": "appear"
+ },
+ "appear-v2": {
+  "file": "appear-v2.mp3",
+  "role": "appear: UI element lands",
+  "duration": 1.363,
+  "peak": 0.14,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"07-confirmation.wav\" by drzhnn (CC0) https://freesound.org/people/drzhnn/sounds/199940",
+  "group": "appear"
+ },
+ "appear-v3": {
+  "file": "appear-v3.mp3",
+  "role": "appear: UI element lands",
+  "duration": 1.21,
+  "peak": 0.04,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"PauseMenu_Appear\" by BaggoNotes (CC0) https://freesound.org/people/BaggoNotes/sounds/721512",
+  "group": "appear"
+ },
+ "pop-v1": {
+  "file": "pop-v1.mp3",
+  "role": "appear: chip / badge pops",
+  "duration": 0.15,
+  "peak": 0.02,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Pop Sound\" by ConarB13 (CC0) https://freesound.org/people/ConarB13/sounds/401542",
+  "group": "pop"
+ },
+ "pop-v2": {
+  "file": "pop-v2.mp3",
+  "role": "appear: chip / badge pops",
+  "duration": 0.128,
+  "peak": 0.02,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Simple Pop Sound Effect\" by SplendidJams (CC0) https://freesound.org/people/SplendidJams/sounds/570459",
+  "group": "pop"
+ },
+ "pop-v3": {
+  "file": "pop-v3.mp3",
+  "role": "appear: chip / badge pops",
+  "duration": 0.138,
+  "peak": 0.04,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Pop 2\" by greenvwbeetle (CC0) https://freesound.org/people/greenvwbeetle/sounds/244654",
+  "group": "pop"
+ },
+ "pop-v4": {
+  "file": "pop-v4.mp3",
+  "role": "appear: chip / badge pops",
+  "duration": 0.224,
+  "peak": 0.05,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Bubble Pop\" by Mafon2 (CC0) https://freesound.org/people/Mafon2/sounds/253956",
+  "group": "pop"
+ },
+ "pop-v5": {
+  "file": "pop-v5.mp3",
+  "role": "appear: chip / badge pops",
+  "duration": 0.145,
+  "peak": 0.03,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"cartoon pop or drip\" by AlaskaRobotics (CC0) https://freesound.org/people/AlaskaRobotics/sounds/221091",
+  "group": "pop"
+ },
+ "click-v1": {
+  "file": "click-v1.mp3",
+  "role": "click: tap / toggle",
+  "duration": 0.159,
+  "peak": 0.04,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"SFX UI Button Click\" by suntemple (CC0) https://freesound.org/people/suntemple/sounds/253168",
+  "group": "click"
+ },
+ "click-v2": {
+  "file": "click-v2.mp3",
+  "role": "click: tap / toggle",
+  "duration": 0.123,
+  "peak": 0.0,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"UI Button Click\" by benzix2 (CC0) https://freesound.org/people/benzix2/sounds/467951",
+  "group": "click"
+ },
+ "click-v3": {
+  "file": "click-v3.mp3",
+  "role": "click: tap / toggle",
+  "duration": 0.13,
+  "peak": 0.05,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"Click Tick.wav\" by malle99 (CC0) https://freesound.org/people/malle99/sounds/384187",
+  "group": "click"
+ },
+ "click-v4": {
+  "file": "click-v4.mp3",
+  "role": "click: tap / toggle",
+  "duration": 0.216,
+  "peak": 0.02,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"Menu Scroll/ Selection Sound\" by CS279 (CC0) https://freesound.org/people/CS279/sounds/200469",
+  "group": "click"
+ },
+ "click-v5": {
+  "file": "click-v5.mp3",
+  "role": "click: tap / toggle",
+  "duration": 0.305,
+  "peak": 0.16,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"Menu FX 01\" by Nightflame (CC0) https://freesound.org/people/Nightflame/sounds/397604",
+  "group": "click"
+ },
+ "key-v1": {
+  "file": "key-v1.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.169,
+  "peak": 0.01,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"enter key\" by uEffects (CC0) https://freesound.org/people/uEffects/sounds/180997",
+  "group": "key"
+ },
+ "key-v2": {
+  "file": "key-v2.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.318,
+  "peak": 0.02,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"Vintage Keyboard 4\" by jim-ph (CC0) https://freesound.org/people/jim-ph/sounds/194798",
+  "group": "key"
+ },
+ "key-v3": {
+  "file": "key-v3.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.349,
+  "peak": 0.03,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"Vintage Keyboard 1\" by jim-ph (CC0) https://freesound.org/people/jim-ph/sounds/194795",
+  "group": "key"
+ },
+ "key-v4": {
+  "file": "key-v4.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.144,
+  "peak": 0.01,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"t key\" by uEffects (CC0) https://freesound.org/people/uEffects/sounds/181001",
+  "group": "key"
+ },
+ "key-v5": {
+  "file": "key-v5.mp3",
+  "role": "typing: single keystroke",
+  "duration": 0.228,
+  "peak": 0.02,
+  "volume": 0.55,
+  "license": "cc0",
+  "credit": "\"mechanical key hard.wav\" by bigmonmulgrew (CC0) https://freesound.org/people/bigmonmulgrew/sounds/378085",
+  "group": "key"
+ },
+ "success-v1": {
+  "file": "success-v1.mp3",
+  "role": "accent: success / done",
+  "duration": 0.774,
+  "peak": 0.16,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"[UI Sound] Approval - High Pitched Bell Synth\" by GabFitzgerald (CC0) https://freesound.org/people/GabFitzgerald/sounds/625174",
+  "group": "success"
+ },
+ "success-v2": {
+  "file": "success-v2.mp3",
+  "role": "accent: success / done",
+  "duration": 1.08,
+  "peak": 0.07,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Beep 4\" by CogFireStudios (CC0) https://freesound.org/people/CogFireStudios/sounds/528862",
+  "group": "success"
+ },
+ "success-v3": {
+  "file": "success-v3.mp3",
+  "role": "accent: success / done",
+  "duration": 0.8,
+  "peak": 0.0,
+  "volume": 0.4,
+  "license": "cc0",
+  "credit": "\"Beep 2\" by CogFireStudios (CC0) https://freesound.org/people/CogFireStudios/sounds/528864",
+  "group": "success"
+ },
+ "ping-v1": {
+  "file": "ping-v1.mp3",
+  "role": "accent: stat lands",
+  "duration": 0.524,
+  "peak": 0.08,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Ding 1\" by greenvwbeetle (CC0) https://freesound.org/people/greenvwbeetle/sounds/241288",
+  "group": "ping"
+ },
+ "ping-v2": {
+  "file": "ping-v2.mp3",
+  "role": "accent: stat lands",
+  "duration": 0.175,
+  "peak": 0.0,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Supershort Ping, Or Short Notification.wav\" by MATRIXXX_ (CC0) https://freesound.org/people/MATRIXXX_/sounds/495650",
+  "group": "ping"
+ },
+ "ping-v3": {
+  "file": "ping-v3.mp3",
+  "role": "accent: stat lands",
+  "duration": 0.34,
+  "peak": 0.0,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"sqeeeek_bell_ting1.wav\" by sqeeeek (CC0) https://freesound.org/people/sqeeeek/sounds/237106",
+  "group": "ping"
+ },
+ "notify-v1": {
+  "file": "notify-v1.mp3",
+  "role": "notify: notification / message",
+  "duration": 0.31,
+  "peak": 0.0,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Notification Sound\" by thehorriblejoke (CC0) https://freesound.org/people/thehorriblejoke/sounds/583554",
+  "group": "notify"
+ },
+ "notify-v2": {
+  "file": "notify-v2.mp3",
+  "role": "notify: notification / message",
+  "duration": 0.229,
+  "peak": 0.04,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Notification Sound\" by Rickplayer (CC0) https://freesound.org/people/Rickplayer/sounds/530480",
+  "group": "notify"
+ },
+ "notify-v3": {
+  "file": "notify-v3.mp3",
+  "role": "notify: notification / message",
+  "duration": 0.308,
+  "peak": 0.19,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Notification sound 2\" by Rickplayer (CC0) https://freesound.org/people/Rickplayer/sounds/530482",
+  "group": "notify"
+ },
+ "notify-v4": {
+  "file": "notify-v4.mp3",
+  "role": "notify: notification / message",
+  "duration": 0.324,
+  "peak": 0.02,
+  "volume": 0.45,
+  "license": "cc0",
+  "credit": "\"Chime Notification\" by Jofae (CC0) https://freesound.org/people/Jofae/sounds/380482",
+  "group": "notify"
+ },
+ "impact-v1": {
+  "file": "impact-v1.mp3",
+  "role": "impact: slam",
+  "duration": 0.255,
+  "peak": 0.04,
+  "volume": 0.35,
+  "license": "cc0",
+  "credit": "\"low thump.wav\" by Reitanna (CC0) https://freesound.org/people/Reitanna/sounds/332670",
+  "group": "impact"
+ },
+ "impact-v2": {
+  "file": "impact-v2.mp3",
+  "role": "impact: slam",
+  "duration": 0.41,
+  "peak": 0.03,
+  "volume": 0.35,
+  "license": "cc0",
+  "credit": "\"C-SPENCE_KICK01.wav\" by HUMANOISEMAKER (CC0) https://freesound.org/people/HUMANOISEMAKER/sounds/157409",
+  "group": "impact"
+ },
+ "impact-v3": {
+  "file": "impact-v3.mp3",
+  "role": "impact: slam",
+  "duration": 1.29,
+  "peak": 0.07,
+  "volume": 0.35,
+  "license": "cc0",
+  "credit": "\"Impact Hit at soft but big material\" by doudar41 (CC0) https://freesound.org/people/doudar41/sounds/728515",
+  "group": "impact"
+ }
+}
