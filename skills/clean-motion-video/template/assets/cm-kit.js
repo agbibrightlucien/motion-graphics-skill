@@ -272,5 +272,79 @@
     return t + d;
   };
 
+  // ---------- footage mode (references/footage.md) ----------
+  // Play a scene timeline k times faster as a whole (e.g. after a voice tempo change).
+  CM.speedWrap = function (tl, k) {
+    const outer = gsap.timeline({ paused: true });
+    tl.paused(false); tl.timeScale(k);
+    outer.add(tl, 0);
+    return outer;
+  };
+
+  // Headline "decode": letters scramble and settle left to right (deterministic). Keeps <b> accents.
+  CM.decode = function (tl, el, t, o = {}) {
+    const d = o.dur ?? 0.45, set = o.chars ?? "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789#%&";
+    const nodes = [];
+    const walk = (n) => n.nodeType === 3 ? nodes.push([n, n.nodeValue]) : n.childNodes.forEach(walk);
+    walk(el);
+    const total = nodes.reduce((a, [, s]) => a + s.length, 0) || 1;
+    const proxy = { p: 0 };
+    const paint = () => {
+      const step = Math.floor(proxy.p * 24);
+      let k = 0;
+      nodes.forEach(([n, s]) => {
+        let out = "";
+        for (let i = 0; i < s.length; i++, k++) {
+          const ch = s[i];
+          if (ch === " " || proxy.p >= 1 || k / total < proxy.p * 1.15 - 0.15) out += ch;
+          else { const r = CM.rng(k * 97 + step * 13)(); out += set[Math.floor(r * set.length)]; }
+        }
+        n.nodeValue = out;
+      });
+    };
+    tl.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.06 }, t);
+    tl.fromTo(proxy, { p: 0 }, { p: 1, duration: d, ease: "power1.out", onUpdate: paint }, t);
+    return t + d;
+  };
+
+  // A number (or any element) starts blurred and sharpens when it is said.
+  CM.sharpen = function (tl, el, t, o = {}) {
+    const d = o.dur ?? 0.35;
+    tl.fromTo(el, { filter: `blur(${o.blur ?? 14}px)`, opacity: o.from ?? 0.5 }, { filter: "blur(0px)", opacity: 1, duration: d, ease: "power2.out" }, t);
+    return t + d;
+  };
+
+  // Checklist rows tick in one per spoken phrase: rows = [el...], times = [t...].
+  CM.ticks = function (tl, rows, times, o = {}) {
+    rows.forEach((r, i) => {
+      const t = times[i] ?? (times[times.length - 1] + 0.4 * (i - times.length + 1));
+      tl.fromTo(r, { opacity: 0, x: -30, filter: "blur(6px)" }, { opacity: 1, x: 0, filter: "blur(0px)", duration: 0.3, ease: "expo.out" }, t);
+      const tick = r.querySelector(".fk-tick");
+      if (tick) tl.fromTo(tick, { scale: 0.3 }, { scale: 1, duration: 0.3, ease: "back.out(2.2)" }, t + 0.06);
+    });
+    return (times[rows.length - 1] ?? 0) + 0.36;
+  };
+
+  // Mini bar chart grows (children of `box`), staggered.
+  CM.bars = function (tl, box, t, o = {}) {
+    const bars = Array.from(box.children), st = o.stagger ?? 0.06;
+    bars.forEach((b, i) => tl.fromTo(b, { scaleY: 0.08 }, { scaleY: 1, duration: 0.35, ease: "expo.out" }, t + i * st));
+    return t + bars.length * st + 0.35;
+  };
+
+  // Draw an SVG path/line (connector between nodes).
+  CM.draw = function (tl, path, t, o = {}) {
+    const len = path.getTotalLength ? path.getTotalLength() : 300, d = o.dur ?? 0.45;
+    path.style.strokeDasharray = len;
+    tl.fromTo(path, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: d, ease: o.ease ?? "power2.inOut" }, t);
+    return t + d;
+  };
+
+  // Slow push-in on a full-screen photo/clip (style B cutaways): scale 1 -> 1.12 over the beat, a little drift.
+  CM.push = function (tl, el, t, dur, o = {}) {
+    tl.fromTo(el, { scale: o.from ?? 1.0, x: 0, y: 0 }, { scale: o.to ?? 1.12, x: o.x ?? 0, y: o.y ?? -20, duration: Math.max(0.5, dur), ease: "none" }, t);
+    return t + dur;
+  };
+
   window.CM = CM;
 })();

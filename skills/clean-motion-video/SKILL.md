@@ -1,6 +1,6 @@
 ---
 name: clean-motion-video
-description: Make motion-graphics videos with voiceover, by default in a clean, minimal, Apple-like "UI motion design" style (word-by-word blur-in text, morphing pills and cards, cursor taps, typed search bars, whips and glitch cuts, a sound effect on every action), with alternative looks for art, stories, tech, ads, kids and luxury content. Rendered with HyperFrames and free tools; the voice can be local Kokoro, Google Gemini TTS, or the user's own recording (cleaned, paced and synced). Use this whenever the user asks for a video, reel, TikTok, short, explainer, ad, promo, product demo, app/UI animation, VSL, story video, "motion graphics", "make a video about X", gives a script or a voiceover file to turn into a video, wants to audition or change voices, or wants a concept explained with animation and voiceover, even if they don't name the style. Also use it for the "sound design breakdown" format (SFX timeline under the video).
+description: Make motion-graphics videos with voiceover, by default in a clean, minimal, Apple-like "UI motion design" style (word-by-word blur-in text, morphing pills and cards, cursor taps, typed search bars, whips and glitch cuts, a sound effect on every action), with alternative looks for art, stories, tech, ads, kids and luxury content. Rendered with HyperFrames and free tools; the voice can be local Kokoro, Google Gemini TTS, or the user's own recording (cleaned, paced and synced). Use this whenever the user asks for a video, reel, TikTok, short, explainer, ad, promo, product demo, app/UI animation, VSL, story video, "motion graphics", "make a video about X", gives a script or a voiceover file to turn into a video, wants to audition or change voices, or wants a concept explained with animation and voiceover, even if they don't name the style. Also use it to EDIT THE USER'S OWN FOOTAGE: raw talking-head clips (phone videos, several takes) cut into a fast short with silences/fillers/retakes removed, word captions, punch-ins, a split layout with a motion-graphics panel above a face window (head pop-out), real images of everything mentioned and light-leak flashes; trigger on "edit my video/footage/clip", "here is my raw video", "cut this", "make this talking-head video interesting". Also the "sound design breakdown" format (SFX timeline under the video).
 ---
 
 # Clean Motion Video
@@ -31,6 +31,22 @@ Long commands (voice, render, chapters) take minutes. Run them in the background
 and let their output stream: never pipe them through `tail`/`head`/`grep` (that hides everything until
 the end), keep `-u` on Python, and don't pass `--quiet` to `HF render`. Read the output only when you
 need a line from it. Render one thing at a time: renders are memory-hungry.
+
+## Footage mode: editing the user's own video
+When the user gives **raw video of themselves** (not just a voice recording), read
+`references/footage.md` and use `scripts/footage.py` (`FOOT` = `python -I -u SKILL/scripts/footage.py`). It cuts silences, fillers and retakes, cleans the
+voice, splits beats, and scaffolds the "split + face" edit: a motion-graphics panel over a face window
+with a head pop-out, full-frame punch-ins, word captions and light-leak flashes. Everything else in this
+skill still applies: HyperFrames rules, assemble, check, snapshots, master, package. The differences:
+- Their words are the script: never rewrite them. Read the kept transcript and confirm nothing real was cut.
+- **Every split beat shows what that line names.** For real places, food, schools, brands and events,
+  fetch real images (licensed, credited) or use the user's photos. Numbers go on stat cards, lists on
+  checklists. This is what makes it theirs, so do it at almost every beat.
+- **Style A, five layouts:** graphics + the face, with five layouts (A1 classic, A2 flip, A4 big stage, A5 floating card,
+  A6 half and half) mixed per video and a per-video look (window shape, background, entrance, captions). Styles B and
+  fused are retired. The head is measured over the whole edit so it is never cut off; see the reference.
+- Palette from the subject (`ghana`, `kente`, `campus`, `light`, `ocean`, `mono`, or a brand block).
+- The voice leads: SFX ≤ 0.25, music ≤ 0.12.
 
 ## The workflow
 
@@ -227,14 +243,19 @@ something real and specific → show the real thing (public-domain archive photo
 with `scripts/fetch_images.py` (Wikimedia Commons + Openverse, licences checked, credits written). A
 feeling or a concept → keep building UI. Always look at the contact sheet before using an image, frame
 photos as exhibits inside the clean style, and put the credits in the YouTube description.
+When Commons and Openverse have nothing specific (a local school, hostel, shop or the user's own places),
+search Google Images in the built-in browser, take the image from its source page (official sites first),
+re-encode it with ffmpeg, credit the source page, and tell the user if no licence is stated.
 
 ### Deliver with a publish pack (every video)
-Read `references/publish-pack.md`. A long video ships with `publish/YOUTUBE.md` (3 titles,
-description with chapters + subscribe link + credits, comma-separated tags, pinned comment), two
-thumbnails (`CMV thumb`), and TikTok parts cut from the finished film (`CMV tiktok --parts ... --titles ... --captions ...`:
-framed 9:16 "Part N" videos + caption files in `publish/tiktok-ready/`, ready to post, no re-render): Part 1 is the hook up to the first cliffhanger, every part starts on a line that makes sense
-cold and ends on a resolved point, 1–3 min each, story order, plus `publish/TIKTOK.md` with captions and
-hashtags. Shorts ship with a caption, hashtags and a cover.
+Read `references/publish-pack.md`. Every video ends with two delivery folders in its project:
+`projects/<slug>/YouTube/` (the mastered upload named by its title, two thumbnails from `CMV thumb`,
+`YOUTUBE.md` with 3 titles, description with chapters + subscribe link + credits, comma-separated tags
+and pinned comment, and `CREDITS.md`) and `projects/<slug>/TikTok/` (ready-to-post framed 9:16
+"Part N - <title>.mp4" files from `CMV tiktok --parts ... --titles ... --captions ...` with a caption file
+beside each, plus `TIKTOK.md`). TikTok parts: Part 1 is the hook up to the first cliffhanger, every part
+starts on a line that makes sense cold and ends on a resolved point, 1–3 min each, story order. Finish
+with `CMV package <dir> --title "<Title>"` and give the user both folder paths.
 
 ### Growing the channel: subscribe / follow call to action (every video)
 Every finished video asks viewers to subscribe/follow, organically: a short overlay that rides on

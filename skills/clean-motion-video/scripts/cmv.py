@@ -31,10 +31,12 @@ Usage (run with `python -I -u <skill>/scripts/cmv.py <command> ...`; `python3` o
         Organic subscribe/follow overlay (cursor taps Subscribe, then the bell). Long films: auto = a calm
         section start ~1/3 in (routes into the right chapter); shorts: the last seconds.
   thumb <dir> --title "WORDS<br><b>ACCENT</b>" [--kicker TEXT] [--frame SECONDS|--image FILE] [--sticker "$4.12" --sticker-label TEXT]
-        YouTube thumbnail 1280x720 -> publish/thumbnail-<name>.png
+        YouTube thumbnail 1280x720 -> <dir>/YouTube/thumbnail-<name>.png
+  package <dir> [--title "Video title"]
+        Final delivery folders: <dir>/YouTube/ (upload video + thumbnails + YOUTUBE.md + CREDITS.md) and <dir>/TikTok/
   tiktok <dir> --parts "s1..s19|s63..s82" --titles "T1|T2" [--captions "C1|C2"] [--landscape-only]
         Ready-to-post TikTok parts from a long film (no new render): 9:16 framed (PART N + title + handle) in
-        publish/tiktok-ready/ as "Part N - <title>.mp4" + caption .txt; plain landscape cuts in publish/tiktok/
+        <dir>/TikTok/ as "Part N - <title>.mp4" + caption .txt
   chapterlist <dir>
         YouTube chapter timestamps for a chaptered film
   sfxboard <outdir>
@@ -59,7 +61,7 @@ plan.json (written by Claude per video):
   "engine": "kokoro",                      // kokoro | gemini
   "voice_style": "...",                    // gemini only: how to say it (tone direction)
   "voice_file": null,                      // path to the user's own recording (one take)
-  "voice_fx": {"energize": true, "tighten": true, "tempo": "auto", "pitch": 0},
+  "voice_fx": {"energize": true, "tighten": true, "tempo": "auto", "pitch": 0},   // "punch": true = stronger broadcast chain
   "music": null,                   // or {"file": "assets/music/x.mp3", "volume": 0.12}
   "scenes": [
     {"id": "hook", "vo": "What if your money worked while you slept?", "min": 2.0, "pad": 0.25},
@@ -190,6 +192,11 @@ def cmd_new(args):
 # boxiness, +3 dB presence, a touch of air, gentle compression.
 ENERGIZE = ("highpass=f=75,equalizer=f=250:t=q:w=1:g=-1.5,equalizer=f=3200:t=q:w=1.2:g=3,"
             "equalizer=f=9500:t=q:w=1:g=2,acompressor=threshold=-21dB:ratio=3:attack=5:release=80:makeup=2")
+# Stronger "broadcast" chain for flat phone recordings (footage mode default): light denoise, cut boxiness
+# (220/420 Hz), +4.5 dB presence, air, de-ess, firmer compression, a little harmonic excitement.
+PUNCH = ("afftdn=nf=-28,highpass=f=90,equalizer=f=220:t=q:w=1:g=-2,equalizer=f=420:t=q:w=1.2:g=-3.5,"
+         "equalizer=f=2800:t=q:w=1.3:g=4.5,equalizer=f=5200:t=q:w=1.5:g=2.5,treble=g=4:f=10000,deesser=i=0.35,"
+         "acompressor=threshold=-26dB:ratio=4:attack=3:release=60:makeup=4,aexciter=amount=2:drive=4:freq=2500,alimiter=limit=0.9,loudnorm=I=-19:TP=-1.5:LRA=11")
 TIGHTEN = ("silenceremove=start_periods=1:start_threshold=-48dB:start_silence=0.02:"
            "stop_periods=-1:stop_duration=0.38:stop_threshold=-48dB:stop_silence=0.28")
 
@@ -231,7 +238,9 @@ def voice_fx(src, dst, fx, tempo=1.0):
     pitch = float(fx.get("pitch", 0) or 0)
     if abs(tempo - 1) > 0.005 or pitch:
         f.append(stretch(tempo, pitch))
-    if fx.get("energize", True):
+    if fx.get("punch"):
+        f.append(PUNCH)
+    elif fx.get("energize", True):
         f.append(ENERGIZE)
     f.append("loudnorm=I=-16:TP=-1.5:LRA=9")
     ffmpeg("-i", src, "-af", ",".join(f), "-ac", "1", "-ar", "44100", dst)
@@ -921,7 +930,8 @@ def cmd_thumb(args):
     if not kicker:
         html = html.replace('<div id="kick"></div>', "")
     png = render_stills(work, html, [0.1], files)
-    out = os.path.join(pub, f"thumbnail-{name}.png")
+    yt = os.path.join(d, "YouTube"); os.makedirs(yt, exist_ok=True)
+    out = os.path.join(yt, f"thumbnail-{name}.png")
     shutil.copy2(png[0], out)
     print(f"thumbnail: {out}")
 
@@ -944,13 +954,13 @@ def parse_parts(d, spec):
 
 def cmd_tiktok(args):
     """tiktok <dir> --parts "s1..s19|s63..s82" --titles "T1|T2" [--captions "C1|C2"] [--landscape-only] [--handle @x] [--avatar file]
-    Framed 9:16 parts are the default (the user posts them as-is); they are also copied to publish/tiktok-ready/
-    as "Part N - <title>.mp4" with "Part N - caption.txt" beside each."""
+    Framed 9:16 parts are the default (the user posts them as-is): <dir>/TikTok/"Part N - <title>.mp4" with
+    "Part N - caption.txt" beside each. Plain landscape cuts stay in publish/tiktok-cuts/ (working files)."""
     d = os.path.abspath(args[0])
     parts = parse_parts(d, opt(args, "--parts", ""))
     titles = (opt(args, "--titles", "") or "").split("|")
     src = find_render(d)
-    outd = os.path.join(d, "publish", "tiktok"); os.makedirs(outd, exist_ok=True)
+    outd = os.path.join(d, "publish", "tiktok-cuts"); os.makedirs(outd, exist_ok=True)   # working: plain landscape cuts
     plan = load(os.path.join(d, "plan.json")) or {}
     ch = plan.get("channel", {})
     handle = opt(args, "--handle", ch.get("handle", "@yourchannel"))
@@ -984,13 +994,95 @@ def cmd_tiktok(args):
                    "[1:v]scale=1080:608[v];[0:v]scale=1080:1920,setsar=1[bg];[bg][v]overlay=0:656:shortest=1[o]", "-map", "[o]", "-map", "1:a",
                    "-c:v", "libx264", "-crf", "18", "-preset", "medium", "-c:a", "copy", "-r", "30", "-shortest", vout)
             line += f"\n          vertical: {vout}"
-            ready = os.path.join(d, "publish", "tiktok-ready"); os.makedirs(ready, exist_ok=True)
+            ready = os.path.join(d, "TikTok"); os.makedirs(ready, exist_ok=True)
             t = re.sub(r'[\\/:*?"<>|]', "", titles[i - 1] if i - 1 < len(titles) else "").strip(". ") or f"part {i}"
             shutil.copy2(vout, os.path.join(ready, f"Part {i} - {t}.mp4"))
             cap = captions[i - 1] if i - 1 < len(captions) and captions[i - 1] else f"{t} (Part {i})"
             open(os.path.join(ready, f"Part {i} - caption.txt"), "w", encoding="utf-8").write(
                 f"{cap}\n\nFirst comment: Full video on YouTube: {ch.get('name', '')} ({handle})\n")
         print(line)
+
+
+def cmd_package(args):
+    """Assemble the final delivery folders of a video project:
+       <dir>/YouTube/  <title>.mp4 (the mastered upload), thumbnail-*.png, YOUTUBE.md, CREDITS.md
+       <dir>/TikTok/   Part N - <title>.mp4 + Part N - caption.txt (from `tiktok`), TIKTOK.md
+    YOUTUBE.md / TIKTOK.md skeletons are written if missing (chapters filled in); finish them by hand."""
+    d = os.path.abspath(args[0])
+    plan = load(os.path.join(d, "plan.json")) or {}
+    title = opt(args, "--title", plan.get("title") or os.path.basename(d))
+    safe = re.sub(r'[\\/:*?"<>|]', "", title).strip(". ") or "video"
+    yt, tt = os.path.join(d, "YouTube"), os.path.join(d, "TikTok")
+    os.makedirs(yt, exist_ok=True)
+    src = find_render(d)
+    dst = os.path.join(yt, f"{safe}.mp4")
+    shutil.copy2(src, dst)
+    # credits: sound + image credits from the project and its chapters
+    lines = []
+    for f in sorted(set(glob_files(d, "CREDITS.md") + glob_files(d, os.path.join("assets", "images", "CREDITS.md")))):
+        if os.path.abspath(f).startswith(os.path.abspath(yt)):
+            continue
+        for ln in open(f, encoding="utf-8").read().splitlines():
+            if ln.startswith("- ") and ln not in lines:
+                lines.append(ln)
+    if lines:
+        open(os.path.join(yt, "CREDITS.md"), "w", encoding="utf-8").write(
+            "# Credits (paste into the YouTube description)\n\n" + "\n".join(lines) + "\n")
+    ym = os.path.join(yt, "YOUTUBE.md")
+    if not os.path.exists(ym):
+        chap = ""
+        chans = load(os.path.join(d, "chapters", "chapters.json"))
+        if chans:
+            chap = "\n".join(f"{int(c['start']) // 60:02d}:{int(c['start']) % 60:02d} <chapter name>" for c in chans)
+        handle = plan.get("channel", {}).get("handle", "@yourchannel").lstrip("@")
+        open(ym, "w", encoding="utf-8").write(f"""# YouTube: "{title}"
+
+Upload: `{safe}.mp4` · Thumbnail: `thumbnail-v1.png`
+
+## Title (pick one)
+1. <title 1, recommended>
+2. <title 2>
+3. <title 3>
+
+## Description
+```
+<1-2 line hook>
+
+Chapters
+{chap or "00:00 <intro>"}
+
+Subscribe: https://www.youtube.com/@{handle}?sub_confirmation=1
+
+<credits from CREDITS.md>
+
+#<topic> #<topic> #{handle.replace("_", "")}
+```
+
+## Tags (comma-separated)
+```
+<tag>, <tag>, <tag>
+```
+
+## Pinned comment
+```
+<question that invites replies>
+```
+""")
+    if os.path.isdir(tt) and not os.path.exists(os.path.join(tt, "TIKTOK.md")):
+        parts = sorted(f for f in os.listdir(tt) if f.lower().endswith(".mp4"))
+        open(os.path.join(tt, "TIKTOK.md"), "w", encoding="utf-8").write(
+            f"# TikTok: \"{title}\" in {len(parts)} parts\n\nPost in order, one a day; pin Part 1.\n\n" +
+            "\n".join(f"- {p}: <why it's cut here>" for p in parts) + "\n")
+    print(f"YouTube/: {', '.join(sorted(os.listdir(yt)))}")
+    if os.path.isdir(tt):
+        print(f"TikTok/:  {', '.join(sorted(os.listdir(tt)))}")
+
+
+def glob_files(d, rel):
+    """rel under the project and under each chapter folder."""
+    out = [os.path.join(d, rel)] + [os.path.join(d, "chapters", c, rel) for c in
+                                     (os.listdir(os.path.join(d, "chapters")) if os.path.isdir(os.path.join(d, "chapters")) else [])]
+    return [p for p in out if os.path.exists(p)]
 
 
 def cmd_chapterlist(args):
@@ -1205,4 +1297,4 @@ if __name__ == "__main__":
     if cmd == "import":
         cmd, rest = "voice", [rest[0], "--file", rest[1]]
     {"new": cmd_new, "voice": cmd_voice, "voices": cmd_voices, "assemble": cmd_assemble, "master": cmd_master,
-     "breakdown": cmd_breakdown, "chapters": cmd_chapters, "concat": cmd_concat, "sfxboard": cmd_sfxboard, "cta": cmd_cta, "thumb": cmd_thumb, "tiktok": cmd_tiktok, "chapterlist": cmd_chapterlist, "hf": cmd_hf, "setup": cmd_setup}[cmd](rest)
+     "breakdown": cmd_breakdown, "chapters": cmd_chapters, "concat": cmd_concat, "sfxboard": cmd_sfxboard, "cta": cmd_cta, "thumb": cmd_thumb, "tiktok": cmd_tiktok, "chapterlist": cmd_chapterlist, "hf": cmd_hf, "setup": cmd_setup, "package": cmd_package}[cmd](rest)

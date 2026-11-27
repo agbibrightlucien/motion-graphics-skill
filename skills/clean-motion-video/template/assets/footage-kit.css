@@ -1,0 +1,192 @@
+/* footage-kit.css: the "split + face" talking-head look (references/footage.md).
+   Palette on #root: data-palette="ghana | kente | legon | coral | campus | light | ocean | mono". Every colour is a variable,
+   so a brand palette is one more block like these. 1080x1920 positions. */
+
+[data-palette="ghana"] {   /* warm night: kente gold + terracotta on warm black (lifestyle, student life) */
+  --fk-bg: #120D09; --fk-bg2: #261A10; --fk-card: #1D1510; --fk-tile: #2A1F15; --fk-line: rgba(242,179,61,0.26);
+  --fk-ink: #FFF6EA; --fk-muted: #BCA88E; --fk-accent: #F2B33D; --fk-accent2: #E4572E; --fk-good: #3FAE6A;
+  --fk-glow: rgba(242,179,61,0.20); --fk-leak1: #FF9A3C; --fk-leak2: #E4572E; }
+[data-palette="kente"] {   /* deep green with gold and red accents (culture, Ghana pride, events) */
+  --fk-bg: #07170F; --fk-bg2: #0F2C1C; --fk-card: #0E2318; --fk-tile: #143322; --fk-line: rgba(242,194,48,0.28);
+  --fk-ink: #FDF8E8; --fk-muted: #A9BFA9; --fk-accent: #F2C230; --fk-accent2: #D7322B; --fk-good: #4CC27A;
+  --fk-glow: rgba(242,194,48,0.18); --fk-leak1: #F2C230; --fk-leak2: #D7322B; }
+[data-palette="legon"] {   /* university navy + gold (campus issues, school news, academic topics) */
+  --fk-bg: #050A18; --fk-bg2: #0E1A3A; --fk-card: #0C1631; --fk-tile: #142248; --fk-line: rgba(242,179,61,0.30);
+  --fk-ink: #F4F6FF; --fk-muted: #9AA6C8; --fk-accent: #F2B33D; --fk-accent2: #FF5A5F; --fk-good: #34C77B;
+  --fk-glow: rgba(242,179,61,0.18); --fk-leak1: #F2B33D; --fk-leak2: #4D7CFF; }
+[data-palette="coral"] {   /* warm black + coral (AI tools, creator talk, behind-the-scenes) */
+  --fk-bg: #110E0C; --fk-bg2: #241A15; --fk-card: #1B1512; --fk-tile: #2A201A; --fk-line: rgba(232,121,86,0.30);
+  --fk-ink: #FBF4EE; --fk-muted: #B3A296; --fk-accent: #E87956; --fk-accent2: #F2B33D; --fk-good: #3FC27A;
+  --fk-glow: rgba(232,121,86,0.20); --fk-leak1: #E87956; --fk-leak2: #F2B33D; }
+[data-palette="campus"] {  /* CampusMatch brand: neutral black + pink */
+  --fk-bg: #0B0B0C; --fk-bg2: #19191B; --fk-card: #1C1C1E; --fk-tile: #2C2C2E; --fk-line: rgba(255,55,95,0.28);
+  --fk-ink: #F5F5F7; --fk-muted: #8E8E93; --fk-accent: #FF375F; --fk-accent2: #FF9F0A; --fk-good: #30D158;
+  --fk-glow: rgba(255,55,95,0.20); --fk-leak1: #FF375F; --fk-leak2: #BF5AF2; }
+[data-palette="light"] {   /* daytime, clean, Apple-like */
+  --fk-bg: #F4F2EE; --fk-bg2: #FFFFFF; --fk-card: #FFFFFF; --fk-tile: #F1EEE8; --fk-line: rgba(20,20,20,0.10);
+  --fk-ink: #141414; --fk-muted: #6F6A63; --fk-accent: #E4572E; --fk-accent2: #0A84FF; --fk-good: #1F9D4C;
+  --fk-glow: rgba(228,87,46,0.10); --fk-leak1: #FFB36B; --fk-leak2: #FF7AA8; }
+[data-palette="ocean"] {   /* cool night blue (tech, money, study tips) */
+  --fk-bg: #060B16; --fk-bg2: #0E1A33; --fk-card: #0F1A2E; --fk-tile: #16233D; --fk-line: rgba(90,200,250,0.26);
+  --fk-ink: #F2F6FF; --fk-muted: #8FA0BF; --fk-accent: #5AC8FA; --fk-accent2: #FFD60A; --fk-good: #30D158;
+  --fk-glow: rgba(90,200,250,0.18); --fk-leak1: #5AC8FA; --fk-leak2: #BF5AF2; }
+[data-palette="mono"] {    /* black and white with one red (serious stories, opinions) */
+  --fk-bg: #080808; --fk-bg2: #1A1A1A; --fk-card: #151515; --fk-tile: #222; --fk-line: rgba(255,255,255,0.14);
+  --fk-ink: #FFFFFF; --fk-muted: #9A9A9A; --fk-accent: #FF3B30; --fk-accent2: #FFFFFF; --fk-good: #30D158;
+  --fk-glow: rgba(255,59,48,0.14); --fk-leak1: #FFFFFF; --fk-leak2: #FF3B30; }
+
+/* ground of the split layout */
+.fk-ground { position: absolute; inset: 0; background: radial-gradient(95% 55% at 50% 28%, var(--fk-bg2) 0%, var(--fk-bg) 70%); }
+
+/* panel text: kicker (small caps) over a heavy caps headline with ONE accent word, then a short dash */
+.fk-kicker { position: absolute; left: 80px; right: 80px; top: 292px; text-align: center; font-family: "Inter", sans-serif;
+  font-weight: 900; font-size: 34px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--fk-ink); }
+.fk-head { position: absolute; left: 60px; right: 60px; top: 340px; text-align: center; font-family: "Inter", sans-serif;
+  font-weight: 900; font-size: 80px; line-height: 1.0; letter-spacing: -0.015em; text-transform: uppercase; color: var(--fk-ink); }
+.fk-head b { color: var(--fk-accent); font-weight: 900; }
+.fk-head::after { content: ""; display: block; width: 64px; height: 7px; margin: 28px auto 0; border-radius: 4px; background: var(--fk-accent); }
+.fk-sub { position: absolute; left: 80px; right: 80px; top: 1056px; text-align: center; font-family: "Inter", sans-serif;
+  font-weight: 700; font-size: 28px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fk-muted); }
+
+/* the panel area between headline and caption: centre cards here (y 560-930) */
+.fk-panel { position: absolute; left: 70px; right: 70px; top: 560px; height: 370px; display: flex; align-items: center; justify-content: center; gap: 28px; }
+
+/* cards */
+.fk-card { background: var(--fk-card); border-radius: 32px; box-shadow: 0 0 0 1.5px var(--fk-line), 0 0 60px var(--fk-glow);
+  color: var(--fk-ink); font-family: "Inter", sans-serif; position: relative; }
+.fk-tile { width: 170px; height: 170px; border-radius: 34px; background: var(--fk-tile); box-shadow: inset 0 0 0 1.5px var(--fk-line), 0 0 40px var(--fk-glow);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; flex: none; color: var(--fk-accent);
+  font-family: "Inter", sans-serif; font-weight: 900; font-size: 54px; }
+.fk-tile img { width: 100%; height: 100%; object-fit: cover; }
+.fk-tile.logo img { width: 74%; height: 74%; object-fit: contain; }
+
+/* stat card: tile + big number + label + pill + mini bars */
+.fk-stat { display: flex; align-items: center; gap: 30px; padding: 30px 38px; }
+.fk-num { font-family: "Inter", sans-serif; font-weight: 900; font-size: 84px; line-height: 1; letter-spacing: -0.03em; color: var(--fk-ink); white-space: nowrap; }
+.fk-label { font-family: "Inter", sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--fk-muted); margin-top: 10px; }
+.fk-pill { display: inline-block; margin-top: 14px; padding: 8px 20px; border-radius: 999px; background: var(--fk-glow); color: var(--fk-accent);
+  font-family: "Inter", sans-serif; font-weight: 900; font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; }
+.fk-bars { display: flex; gap: 10px; align-items: flex-end; height: 74px; margin-top: 16px; }
+.fk-bars i { display: block; width: 28px; border-radius: 8px; background: var(--fk-accent); transform-origin: 50% 100%; opacity: 0.45; }
+.fk-bars i:last-child { opacity: 1; box-shadow: 0 0 18px var(--fk-glow); }
+
+/* checklist: rows tick in as they are said */
+.fk-check { padding: 18px 36px; min-width: 700px; }
+.fk-row { display: flex; align-items: center; gap: 22px; height: 92px; font-family: "Inter", sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -0.01em; color: var(--fk-ink); }
+.fk-row + .fk-row { box-shadow: inset 0 1.5px 0 var(--fk-line); }
+.fk-tick { width: 50px; height: 50px; border-radius: 50%; background: var(--fk-accent); flex: none; display: flex; align-items: center; justify-content: center; }
+.fk-tick svg { width: 30px; height: 30px; }
+.fk-row .fk-note { margin-left: auto; font-weight: 700; font-size: 30px; color: var(--fk-muted); }
+
+/* real photo card: the actual place / food / thing that was named */
+.fk-photo { border-radius: 32px; overflow: hidden; position: relative; background: var(--fk-tile); box-shadow: 0 0 0 1.5px var(--fk-line), 0 30px 70px rgba(0,0,0,0.5); flex: none; }
+.fk-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fk-photo .fk-cap2 { position: absolute; left: 0; right: 0; bottom: 0; padding: 50px 26px 20px; background: linear-gradient(transparent, rgba(0,0,0,0.78));
+  font-family: "Inter", sans-serif; font-weight: 900; font-size: 34px; letter-spacing: 0.02em; text-transform: uppercase; color: #fff; }
+
+/* node diagram: tiles + connector paths (SVG) */
+.fk-node { display: flex; flex-direction: column; align-items: center; gap: 14px; font-family: "Inter", sans-serif; font-weight: 800; font-size: 28px;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--fk-muted); }
+.fk-node .fk-tile { width: 150px; height: 150px; }
+.fk-x { position: absolute; padding: 6px 14px; border-radius: 10px; background: rgba(255,59,48,0.16); color: #FF453A; font-family: "Inter", sans-serif;
+  font-weight: 900; font-size: 28px; letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* face window of the split layout + pop-out layer (positions written by footage.py scaffold) */
+.fk-win { position: absolute; left: 247px; top: 1262px; width: 586px; height: 700px; border-radius: 40px; overflow: hidden; background: #000;
+  box-shadow: 0 0 0 1.5px var(--fk-line); }
+.fk-pop { position: absolute; inset: 0; pointer-events: none; }
+
+/* captions (overlay.html): one or a few words, quiet, on a faint box */
+.fk-cap { position: absolute; left: 0; width: 1080px; text-align: center; opacity: 0; }
+.fk-capbox { display: inline-block; padding: 10px 26px 14px; border-radius: 16px; background: rgba(0,0,0,0.45);
+  font-family: "Inter", sans-serif; font-weight: 700; font-size: 60px; letter-spacing: -0.02em; color: #FFFFFF; }
+
+/* one big quoted word on a face beat ("FREE", "WAHALA") */
+.fk-quote { position: absolute; left: 0; width: 1080px; top: 250px; text-align: center; font-family: "Inter", sans-serif; font-weight: 900; letter-spacing: -0.03em; font-size: 130px;
+  line-height: 1; color: #FFFFFF; text-transform: uppercase; text-shadow: 0 8px 40px rgba(0,0,0,0.55); }
+.fk-quote b { color: var(--fk-accent); font-weight: 900; }
+
+/* light-leak flash (overlay.html) */
+.fk-leak { position: absolute; inset: -12%; opacity: 0; mix-blend-mode: screen;
+  background: radial-gradient(55% 45% at 22% 35%, var(--fk-leak1) 0%, transparent 70%), radial-gradient(50% 55% at 82% 72%, var(--fk-leak2) 0%, transparent 70%); }
+
+/* =====================================================================================
+   STYLE B: cinematic + cutaways (full-frame face; full-screen cutaways with the voice running on)
+   ===================================================================================== */
+/* full-screen cutaway with a real photo or clip: slow push-in (CM.push), soft shade for text */
+.fk-cutbg { position: absolute; inset: 0; background: var(--fk-bg); }
+.fk-full { position: absolute; inset: 0; overflow: hidden; }
+.fk-full img, .fk-full video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.fk-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0) 28%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.55) 100%); }
+/* big spec / keyword title over a cutaway ("5.1mm", "Balme Library", "GH₵ 45") */
+.fk-spec { position: absolute; left: 70px; right: 70px; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-weight: 900;
+  font-size: 104px; line-height: 0.98; letter-spacing: -0.035em; color: #fff; text-transform: none;
+  text-shadow: 0 6px 30px rgba(0,0,0,0.45), 0 0 1px rgba(0,0,0,0.6); }
+.fk-spec small { display: block; font-weight: 700; font-size: 40px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.9; margin-top: 10px; }
+.fk-spec i { font-family: "Playfair Display", serif; font-style: italic; font-weight: 600; letter-spacing: -0.01em; }
+
+/* white motion-graphics board (lists, labels, comparisons) */
+.fk-board { position: absolute; inset: 0; background: #FAFAFC; }
+.fk-btitle { position: absolute; left: 80px; right: 80px; top: 300px; text-align: center; font-family: "Inter", sans-serif; font-weight: 900;
+  font-size: 72px; line-height: 1.02; letter-spacing: -0.03em; color: #15121C; }
+.fk-btitle b { color: var(--fk-pill, #5B21B6); }
+.fk-blist { position: absolute; left: 110px; right: 110px; top: 520px; display: flex; flex-direction: column; align-items: center; gap: 22px; }
+.fk-bpill { display: inline-flex; align-items: center; gap: 12px; padding: 16px 30px; border-radius: 18px; background: var(--fk-pill, #5B21B6); color: #fff;
+  font-family: "Inter", sans-serif; font-weight: 800; font-size: 38px; letter-spacing: -0.01em; box-shadow: 0 10px 30px rgba(91,33,182,0.25); }
+.fk-bline { font-family: "Inter", sans-serif; font-weight: 600; font-size: 40px; color: #2A2433; text-align: center; line-height: 1.25; }
+.fk-bcols { display: flex; gap: 28px; width: 100%; }
+.fk-bcol { flex: 1; display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+
+/* phone mockup holding a real screenshot (app, website, portal) */
+.fk-phone { position: absolute; left: 290px; top: 470px; width: 500px; height: 1000px; border-radius: 70px; background: #0B0B0D; padding: 18px;
+  box-shadow: 0 0 0 3px #2A2A2E, 0 40px 90px rgba(0,0,0,0.45); }
+.fk-phone .fk-screen { position: absolute; inset: 18px; border-radius: 54px; overflow: hidden; background: #fff; }
+.fk-phone .fk-screen img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+
+/* headline card: the real headline text + source (never a copied news photo) */
+.fk-hcard { position: absolute; left: 90px; right: 90px; top: 560px; padding: 40px 44px; border-radius: 28px; background: #fff; color: #111;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35); font-family: "Inter", sans-serif; }
+.fk-hcard .src { font-weight: 800; font-size: 28px; letter-spacing: 0.12em; text-transform: uppercase; color: #C8102E; }
+.fk-hcard .hl { font-weight: 900; font-size: 56px; line-height: 1.08; letter-spacing: -0.025em; margin-top: 14px; }
+.fk-hcard .dt { font-weight: 600; font-size: 28px; color: #6B6B70; margin-top: 16px; }
+
+/* round face bubble over a cutaway or screen recording (full head inside the circle) */
+.fk-bubble { position: absolute; left: 70px; top: 1040px; width: 300px; height: 300px; border-radius: 50%; overflow: hidden; background: #000;
+  box-shadow: 0 0 0 7px var(--fk-accent), 0 20px 50px rgba(0,0,0,0.45); }
+
+/* style B captions: 2-3 word phrases, gold with a dark stroke (overlay.html adds fk-gold) */
+.fk-cap.fk-gold .fk-capbox { background: none; padding: 0; font-family: "Inter", sans-serif; font-weight: 900; font-size: 64px; letter-spacing: -0.02em;
+  color: #F7C948; -webkit-text-stroke: 3px rgba(20,14,4,0.9); paint-order: stroke fill; text-shadow: 0 4px 16px rgba(0,0,0,0.55); }
+
+/* one-word reaction title over the face ("HEY.", "THAT TRUE.") instead of copyrighted meme clips */
+.fk-react { position: absolute; left: 0; width: 1080px; top: 420px; text-align: center; font-family: "Inter", sans-serif; font-weight: 900; font-size: 150px;
+  letter-spacing: -0.04em; color: #fff; text-shadow: 0 8px 40px rgba(0,0,0,0.6); }
+
+/* CTA: 'Comment' + big boxed keyword */
+.fk-cta { position: absolute; left: 0; width: 1080px; top: 300px; text-align: center; font-family: "Inter", sans-serif; }
+.fk-cta .k1 { font-weight: 800; font-size: 44px; color: #fff; text-shadow: 0 4px 16px rgba(0,0,0,0.5); }
+.fk-cta .k2 { display: inline-block; margin-top: 10px; padding: 14px 34px; border-radius: 16px; background: var(--fk-pill, #5B21B6); color: #fff;
+  font-weight: 900; font-size: 80px; letter-spacing: -0.02em; box-shadow: 0 0 0 4px rgba(255,255,255,0.85); }
+
+/* end card: music-player 'What's next?' */
+.fk-player { position: absolute; left: 90px; right: 90px; top: 260px; padding: 40px 40px 34px; border-radius: 40px; text-align: center;
+  background: linear-gradient(180deg, var(--fk-bg2), var(--fk-card)); box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 0 0 2px var(--fk-line); font-family: "Inter", sans-serif; }
+.fk-ptitle { font-weight: 900; font-style: italic; font-size: 60px; letter-spacing: -0.02em; color: var(--fk-ink); text-transform: uppercase; }
+.fk-pname { font-weight: 700; font-size: 40px; color: var(--fk-muted); margin-top: 6px; }
+.fk-pctrl { display: flex; align-items: center; justify-content: center; gap: 70px; margin-top: 26px; color: var(--fk-muted); font-size: 44px; }
+.fk-pbtn { width: 130px; height: 130px; border-radius: 50%; background: var(--fk-accent); display: flex; align-items: center; justify-content: center; gap: 16px;
+  box-shadow: 0 0 0 10px var(--fk-glow); }
+.fk-pbtn i { display: block; width: 18px; height: 54px; border-radius: 5px; background: #fff; }
+.fk-pfollow { margin-top: 24px; font-weight: 800; font-size: 32px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--fk-accent); }
+
+/* ---- per-video looks for style A (plan "look") ---- */
+.fk-ground.grid { background:
+  linear-gradient(rgba(255,255,255,0.045) 1.5px, transparent 1.5px) 0 0 / 90px 90px,
+  linear-gradient(90deg, rgba(255,255,255,0.045) 1.5px, transparent 1.5px) 0 0 / 90px 90px,
+  radial-gradient(95% 55% at 50% 28%, var(--fk-bg2) 0%, var(--fk-bg) 70%); }
+.fk-ground.dots { background:
+  radial-gradient(circle, rgba(255,255,255,0.08) 2px, transparent 2.5px) 0 0 / 44px 44px,
+  radial-gradient(95% 55% at 50% 28%, var(--fk-bg2) 0%, var(--fk-bg) 70%); }
+.fk-cap.fk-cap-box .fk-capbox { background: var(--fk-accent); color: #fff; border-radius: 14px; }
+.fk-cap.fk-cap-line .fk-capbox { background: none; border-radius: 0; padding: 0 8px 8px; box-shadow: inset 0 -10px 0 var(--fk-accent);
+  text-shadow: 0 4px 18px rgba(0,0,0,0.6); }

@@ -90,7 +90,7 @@ def main():
         try:
             open(raw, "wb").write(get(f["url"], 60))
             subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", raw, "-vf",
-                            "scale='min(2400,iw)':-2", "-q:v", "3", os.path.join(out, name)], check=True)
+                            "scale='min(2400,iw)':-2", "-frames:v", "1", "-update", "1", "-q:v", "3", os.path.join(out, name)], check=True)
         except Exception as e:
             print(f"  skip {f['title'][:50]}: {e}"); continue
         finally:
